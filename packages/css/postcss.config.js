@@ -1,17 +1,15 @@
-const postcssImport = require("postcss-import");
-const autoprefixer = require("autoprefixer");
-const postcssCustomProperties = require("postcss-custom-properties");
-const postcssCustomMedia = require("postcss-custom-media");
-const cssnano = require("cssnano");
-module.exports = {
-  plugins: [
-    postcssImport(),
-    autoprefixer(),
-    postcssCustomProperties(),
-    postcssCustomMedia(),
-    cssnano({
-      preset: "default"
-    })
-  ],
-  map: false
+module.exports = ctx => {
+  const isDev = ctx.env === 'development';
+
+  return {
+    map: isDev ? ctx.map : false,
+    plugins: {
+      'postcss-import': {},
+      'postcss-custom-properties': { preserve: true },
+      'postcss-custom-media': {},
+      'postcss-nesting': {},
+      autoprefixer: {},
+      cssnano: isDev ? false : { preset: 'default' },
+    },
+  };
 };
