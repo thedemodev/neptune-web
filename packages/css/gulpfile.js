@@ -27,7 +27,7 @@ const lessCompiler = () => {
         path.basename = path.basename.replace('.bundle', '');
       }),
     )
-    .pipe(gulp.dest('dist/css'));
+    .pipe(gulp.dest('dist/css/legacy'));
 };
 
 // Watch files
@@ -35,5 +35,22 @@ const lessWatcher = () => {
   gulp.watch(['src/**/*.less'], gulp.series(lessCompiler));
 };
 
+const postCssCompiler = () => {
+  return gulp
+    .src(['src/css/**.css'])
+    .pipe(cached('post-css'))
+    .pipe(postcss())
+    .pipe(plumber())
+    .pipe(gulp.dest('dist/css'))
+    .pipe(print(filepath => `compiled: ${filepath}`));
+};
+
+const postCssWatcher = () => {
+  gulp.watch(['src/css/**.css'], gulp.series(postCssCompiler));
+};
+
 exports.lessWatcher = lessWatcher;
 exports.lessCompiler = lessCompiler;
+
+exports.postcssCompiler = postCssCompiler;
+exports.postcssWatcher = postCssWatcher;
