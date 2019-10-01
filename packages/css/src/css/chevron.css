@@ -1,6 +1,4 @@
-/* Level 4 */
-
-@import './variables/_colors.less';
+@import './variables/colors.css';
 
 .chevron-container {
   --animation-duration: 300ms;
@@ -14,6 +12,7 @@
   stroke: var(--brand-light-blue);
   stroke-width: var(--medium-stroke-width);
   stroke-linecap: square;
+  color: blue;
 }
 
 .chevron-container {
@@ -33,10 +32,10 @@
     transition: transform var(--animation-duration);
   }
 
-  .chevron-line-one {
+  & .chevron-line-one {
     transform-origin: 50% 65%;
   }
-  .chevron-line-two {
+  & .chevron-line-two {
     transform-origin: 50% 65%;
   }
 
