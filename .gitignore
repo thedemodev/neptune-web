@@ -43,7 +43,7 @@ yarn-error.log
 lib
 build
 docs-build
-*.css
+# *.css
 
 # editors
 
