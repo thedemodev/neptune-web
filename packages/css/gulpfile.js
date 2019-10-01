@@ -13,7 +13,7 @@ const rename = require('gulp-rename');
 const lessCompiler = () => {
   const excludeBundles = argv.dev ? ['**', '!src/less/*.bundle.less'] : ['**'];
   return gulp
-    .src(['src/less/*.less'])
+    .src(['src/legacy-less/*.less'])
     .pipe(cached('less'))
     .pipe(dependents())
     .pipe(filter(excludeBundles))
