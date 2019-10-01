@@ -30,6 +30,7 @@
     "build:compile-postcss": "gulp postcssCompiler --prod",
     "dev": "npm-run-all dev:*",
     "dev:watch-postcss": "gulp postcssWatcher --dev",
+    "watch-legacy-less": "gulp lessWatcher --dev",
     "copy:images": "cpx 'src/img/**' dist/img",
     "copy:fonts": "cpx 'src/fonts/*' dist/fonts",
     "lint": "npm-run-all lint:*",
