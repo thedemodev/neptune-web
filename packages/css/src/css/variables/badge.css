@@ -1,0 +1,12 @@
+
+:root {
+  --badge-color: #fff;
+  --badge-link-hover-color: #fff;
+  --badge-bg: var(--brand-red);
+  --badge-active-color: var(--link-color);
+  --badge-active-bg: #fff;
+  --badge-font-size: 10px;
+  --badge-font-weight: bold;
+  --badge-line-height: 1;
+  --badge-border-radius: 10px;
+}

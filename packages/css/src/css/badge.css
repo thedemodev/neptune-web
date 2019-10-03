@@ -1,0 +1,68 @@
+
+@import './variables/colors.css';
+@import './variables/badge.css';
+
+.badge {
+  display: inline-block;
+  min-width: 16px;
+  padding: 5px 8px;
+  font-size: var(--badge-font-size);
+  font-weight: var(--badge-font-weight);
+  color: var(--badge-color);
+  line-height: var(--badge-line-height);
+  vertical-align: middle;
+  white-space: nowrap;
+  text-align: center;
+  background-color: var(--badge-bg);
+  border-radius: var(--badge-border-radius);
+  top: -1px;
+  position: relative;
+
+  &:empty {
+    display: none;
+  }
+
+  @nest .btn & {
+    position: relative;
+    top: -1px;
+  }
+
+  @nest .glyphicon & {
+    top: -20px;
+    left: -5px;
+  }
+
+  @nest .btn-xs &{
+    top: 0;
+    padding: 1px 5px;
+  }
+
+  @nest a& {
+    &:hover,
+    &:focus {
+      color: var(--badge-link-hover-color);
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+}
+
+.btn-group-xs > .btn .badge {
+  top: 0;
+  padding: 1px 5px;
+}
+
+.list-group-item > .badge {
+  float: right;
+}
+.list-group-item > .badge + .badge {
+  margin-right: 5px;
+}
+.nav-pills > li > a > .badge,
+.nav-stacked > li > a > .badge {
+  margin-left: 19px;
+}
+
+.badge-success{
+  background: var(--brand-success);
+}
