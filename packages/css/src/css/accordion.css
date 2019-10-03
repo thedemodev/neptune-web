@@ -1,13 +1,11 @@
-/* Level 4 */
-
-@import './chevron.less';
-@import './decision.less';
-@import './media.less';
+@import './chevron.css';
+@import './decision.css';
+@import './media.css';
 
 .accordion-item {
   display: block;
 
-  .chevron {
+  & .chevron {
     vertical-align: middle;
   }
 

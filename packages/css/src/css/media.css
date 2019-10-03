@@ -1,15 +1,15 @@
-/* Level 3 */
-
-@import './variables/_colors.less';
-@import './variables/_custom-media.less';
-@import './variables/_spacing.less';
+@import './variables/colors.css';
+@import './variables/custom-media.css';
+@import './variables/spacing.css';
 
 .media {
   display: flex;
 }
+
 .media + .media {
   margin-top: calc(var(--spacer) * 3);
 }
+
 .media-body {
   flex: 1;
 
@@ -43,6 +43,7 @@
 
 .media-left {
   padding-right: var(--spacing-1-mobile);
+
   @media (--screen-sm) {
     padding-right: var(--spacing-1-tablet);
   }
@@ -65,7 +66,7 @@
 /* Fix text-ellipsis issue with text in dropdown */
 
 .dropdown-menu {
-  .media-body {
+  & .media-body {
     overflow: hidden;
   }
 }
