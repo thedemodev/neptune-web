@@ -12,7 +12,6 @@
   stroke: var(--brand-light-blue);
   stroke-width: var(--medium-stroke-width);
   stroke-linecap: square;
-  color: blue;
 }
 
 .chevron-container {
