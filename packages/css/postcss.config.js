@@ -5,7 +5,7 @@ module.exports = ctx => {
     map: isDev ? ctx.map : false,
     plugins: {
       'postcss-import': {},
-      'postcss-custom-properties': { preserve: true },
+      'postcss-custom-properties': { preserve: false },
       'postcss-custom-media': {},
       'postcss-nesting': {},
       autoprefixer: {},
