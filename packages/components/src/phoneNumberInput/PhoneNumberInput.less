@@ -1,0 +1,23 @@
+@import 'bootstrap/less/variables';
+
+@four-digit-country-code-width: 120px;
+
+.tw-telephone {
+  display: flex;
+  @media (min-width: @screen-sm) {
+    .btn-group {
+      .dropdown-menu {
+        min-width: 250px;
+      }
+    }
+  }
+}
+
+.tw-telephone__country-select {
+  flex-basis: @four-digit-country-code-width;
+  flex-shrink: 0;
+}
+
+.tw-telephone__number-input {
+  flex: auto 1 1;
+}
