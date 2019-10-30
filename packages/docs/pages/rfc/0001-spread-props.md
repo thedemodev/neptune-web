@@ -38,7 +38,7 @@ There are also schema.org attributes, which are used and not relevant to a compo
 
 - The component or an underlying element might benefit from any of the aforementioned props
 
-## When to use it
+## When not to use it
 
 -  It has a good chance to break the UI or cause tangible inconsistencies
 -  It doesn’t provide any obvious benefits or value
