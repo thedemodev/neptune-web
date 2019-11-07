@@ -4,7 +4,7 @@
 
 # Summary
 
-Neptune CSS is the future way how we distribute CSS between different technology stacks and applications across TransferWise. In this RFC we propose way to organise our styles to create these small CSS bundles.
+Neptune CSS is the future way how we distribute CSS between different technology stacks and applications across TransferWise. In this RFC we propose a way to organise our styles to create these small CSS bundles.
 
 # Basic example
 
@@ -27,7 +27,7 @@ This is the bundle that has full Neptune CSS.
 import '@transferwise/neptune-css/dist/css/neptune.css';
 ```
 
-## 3. Neptune Core
+## 2. Neptune Core
 
 **Neptune Core** contains the foundation styles, including heading sizes, links styles, font styles, and normalize.css to render elements consistently across browsers.
 
@@ -118,7 +118,7 @@ import '@transferwise/neptune-css/dist/css/neptune.shared-components.css';
 
 ## React Components
 
-Neptune Components written in React will have their individual styles in the component package closer to the implementation. The styles of these React components could possible be bundled or distributed as individual CSS files for other technology stacks if needed.
+Neptune Components written in React will have their individual styles in the component package closer to the implementation. The styles of these React components could possibly be bundled or distributed as individual CSS files for other technology stacks if needed.
 
 ## Legacy LESS Components
 
@@ -148,7 +148,7 @@ Update TransferWise Bootstrap to new version which has better modularity built i
 
 # Adoption strategy
 
-Changing the CSS in this magnitued will break some components and layouts. We need to be careful to test this enough with our current applications.
+Changing the CSS in this magnitude will break some components and layouts. We need to be careful to test this enough with our current applications.
 
 # How we teach this
 
