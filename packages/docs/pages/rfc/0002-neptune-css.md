@@ -45,7 +45,7 @@ import '@transferwise/neptune-css/dist/css/neptune.css';
 
 ### Use Neptune Core bundle
 
-```
+```js
 // Individual
 import '@transferwise/neptune-css/dist/css/neptune-core/global-variables.css';
 import '@transferwise/neptune-css/dist/css/neptune-core/typography/fonts.css';
@@ -73,7 +73,7 @@ import '@transferwise/neptune-css/dist/css/neptune.core.css';
 
 ### Use Neptune Shared Styles bundle
 
-```
+```js
 // Individual
 import '@transferwise/neptune-css/dist/css/neptune-shared-styles/button.css';
 
@@ -108,7 +108,7 @@ import '@transferwise/neptune-css/dist/css/neptune.shared-styles.css';
 
 ### Use Neptune Shared Components bundle
 
-```
+```js
 // Individual
 import '@transferwise/neptune-css/dist/css/neptune-shared-components/tooltip.css';
 
@@ -126,7 +126,7 @@ These are the old legacy LESS components that will be bundled into single CSS bu
 
 ### Use Neptune Legacy LESS Components bundle
 
-```
+```js
 // Individual
 import '@transferwise/neptune-css/dist/css/neptune-legace-components/carousel.css';
 
