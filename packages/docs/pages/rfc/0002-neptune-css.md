@@ -22,7 +22,7 @@ This is the bundle that has full Neptune CSS.
 
 ### Use Neptune bundle
 
-```
+```js
 // Full bundle
 import '@transferwise/neptune-css/dist/css/neptune.css';
 ```
