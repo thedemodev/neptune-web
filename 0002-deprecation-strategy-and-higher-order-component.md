@@ -159,7 +159,7 @@ const deprecationConfiguration = {
 };
 ```
 
-To offer maximum flexibility and control to the deprecating engineer, we propose that we support a decider as a function and a decider as a configuration object. The function intended to be used where an API has changed beyond recognition and a props map or similar would make little sense.
+To offer maximum flexibility and control to the deprecating engineer, we propose that we support a decider as a function and a decider as a configuration object. The function intended to be used where an API has changed beyond recognition and a props map or similar would make little sense. @sergonius [put together an example](https://codesandbox.io/s/deprecating-react-components-pf0yp) of how it could work.
 
 ## Other considerations
 
@@ -190,7 +190,7 @@ There are two clear alternatives:
     return <Button>{renderedChildren}</Button>
 	}
 	```
-  
+
 	The concern here being the increased complexity in understand how the component works, and removing the depecration
 ​
 # Adoption strategy
