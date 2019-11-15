@@ -115,32 +115,32 @@ const EitherOr = (Component1, Component2, config) => {
 };
 
 function decider(config, { props }) {
-	let useNew = true;
+  let useNew = true;
+
+  Object.keys(props).forEach(prop => {
+    const propConfig = config.props[prop];
 ​
-	Object.keys(props).forEach(prop => {
-		const propConfig = config.props[prop];
+    if (propConfig) {
+      const { newProp, changelog, customLog } = propConfig;
+      const defaultLogMessage = `${prop} has been deprecated.`
+        useNew = false;
 ​
-		if (propConfig) {
-			const { newProp, changelog, customLog } = propConfig;
-			const defaultLogMessage = `${prop} has been deprecated.`
-		    useNew = false;
-​
-			console.warn(customLog ? customLog(newProp, prop, changelog) : defaultLogMessage);
-		}
-	});
-	
-	return useNew;
+      console.warn(customLog ? customLog(newProp, prop, changelog) : defaultLogMessage);
+    }
+  });
+
+  return useNew;
 }
 
 const deprecationConfiguration = {
-	props: {
-		label: {
-			newProp: 'children', // or `null` to warn that a prop has been removed entirely
-			changelog: 'http://...',
-			customLog: (newProp, oldProp, changelog) =>
-				`${oldProp} has been replaced with ${newProp}. Chech out the [changelog](${changelog}) for more details.`,
-		},
-	},
+  props: {
+    label: {
+      newProp: 'children', // or `null` to warn that a prop has been removed entirely
+      changelog: 'http://...',
+      customLog: (newProp, oldProp, changelog) =>
+        `${oldProp} has been replaced with ${newProp}. Chech out the [changelog](${changelog}) for more details.`,
+    },
+  },
 };
 
 export default EitherOr(NewButton, OldButton, deprecationConfiguration);
@@ -179,8 +179,8 @@ There are two clear alternatives:
 1. Run with the `function`-only decider, for simpler implementation on our end
 2. Deprecate props within a component directly, e.g.:
 
-	```js
-	function Button({ label, children }) {
+  ```js
+  function Button({ label, children }) {
     const renderedChildren = label || children;
     
     if(label) {
@@ -188,10 +188,10 @@ There are two clear alternatives:
     }
     
     return <Button>{renderedChildren}</Button>
-	}
-	```
+  }
+  ```
 
-	The concern here being the increased complexity in understand how the component works, and removing the depecration
+  The concern here being the increased complexity in understand how the component works, and removing the depecration
 ​
 # Adoption strategy
 ​
