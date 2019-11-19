@@ -148,13 +148,21 @@ pre {
   margin-bottom: 40px;
 }
 .live-editor {
-  background: #f2f5f7;
+  background: #fff;
+  border: 1px solid #f2f5f7;
+}
+.live-editor .token-line:first-child {
+  display: none;
+}
+
+.live-editor .token-line:last-child {
+  display: none;
 }
 
 .live-editor textarea {
   outline: none;
 }
 
-.tabs__panel{
-  padding: 32px;
+.tabs__panel {
+  padding: calc(var(--spacer));
 }
