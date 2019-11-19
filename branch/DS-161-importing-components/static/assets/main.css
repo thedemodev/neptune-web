@@ -172,3 +172,7 @@ h4 {
   margin-top: calc(var(--spacer) * 4);
   margin-bottom: calc(var(--spacer) * 3);
 }
+/* Props table */
+.table-condensed li {
+  list-style-type: none;
+}
