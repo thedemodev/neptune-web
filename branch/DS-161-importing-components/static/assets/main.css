@@ -144,25 +144,31 @@ pre {
 
 /*Live Editor*/
 .live-provider {
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin: calc(var(--spacer) * 3) 0 0;
 }
+
 .live-editor {
   background: #fff;
   border: 1px solid #f2f5f7;
 }
-.live-editor .token-line:first-child {
-  display: none;
-}
 
-.live-editor .token-line:last-child {
-  display: none;
+.live-editor {
+  background: #fff;
+  border: 1px solid #f2f5f7;
 }
 
 .live-editor textarea {
   outline: none;
 }
-
+/* Tabs */
 .tabs__panel {
   padding: calc(var(--spacer));
+}
+
+/* Typography temp */
+.Content h2,
+h3,
+h4 {
+  margin-top: calc(var(--spacer) * 4);
+  margin-bottom: calc(var(--spacer) * 3);
 }
