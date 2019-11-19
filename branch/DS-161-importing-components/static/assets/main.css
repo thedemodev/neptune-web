@@ -176,3 +176,7 @@ h4 {
 .table-condensed li {
   list-style-type: none;
 }
+.table-condensed ul {
+  padding: 0;
+  margin-bottom: calc(var(--spacer));
+}
