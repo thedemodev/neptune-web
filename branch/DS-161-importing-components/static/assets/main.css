@@ -164,11 +164,17 @@ pre {
 .tabs__panel {
   padding: calc(var(--spacer));
 }
-
+/*Temp css to remove */
 /* Typography temp */
 .Content h2,
 h3,
 h4 {
+}
+
+.Content h2[id],
+h3[id],
+h4[id],
+.panel-title {
   margin-top: calc(var(--spacer) * 4);
   margin-bottom: calc(var(--spacer) * 3);
 }
