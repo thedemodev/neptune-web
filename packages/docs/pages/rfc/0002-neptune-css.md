@@ -10,7 +10,7 @@ Neptune CSS is the future way how we distribute CSS between different technology
 
 # Motivation
 
-Traditionally we have been using TransferWise Bootstrap, which has grown to be quite big and not so easy to work with. We need to split the existing TransferWise Bootstrap to be consumed in smaller bundles. This was already done to a certain point with the MVP of Neptune CSS. This RFC suggest the way of bundling styles into meaningful bundles for easy use, or into singular component based files if the consumer application wants best optimisation and performance.
+Traditionally we have been using TransferWise Bootstrap, which has grown to be quite big and not so easy to work with. We need to split the existing TransferWise Bootstrap to be consumed in smaller bundles. This is already done to a certain point with the MVP of Neptune CSS. This RFC suggest the way of bundling styles into meaningful bundles for easy use, or into singular component based files if the consumer application wants best optimisation and performance.
 
 # Detailed design
 
@@ -34,12 +34,16 @@ import '@transferwise/neptune-css/dist/css/neptune.css';
 ```
 ├── neptune-core/
 │   ├── global-variables.css
+│   ├── grid.css
 │   ├── normalize.css
 │   ├── print.css
+│   ├── responsive-utilities.css
 │   ├── scaffolding.css
 │   ├── typography/
 │   │   ├── fonts.css
 │   │   ├── typography.css
+│   ├── utilities.css
+│   ├── variables.css
 │   ├── etc.
 ```
 
@@ -54,46 +58,23 @@ import '@transferwise/neptune-css/dist/css/neptune-core/typography/fonts.css';
 import '@transferwise/neptune-css/dist/css/neptune.core.css';
 ```
 
-## 3. Neptune Shared Styles
-
-**Neptune Shared Styles** contains styles needed to create grid layouts, buttons or forms. **\*Neptune Shared Styles** are styles that could be part of the **Neptune Core**. This is up to discussion.\*
-
-```
-├── neptune-shared-styles/
-│   ├── button.css
-│   ├── button-groups.css
-│   ├── forms.css
-│   ├── grid.css
-│   ├── input-groups.css
-│   ├── responsive-utilities.css
-│   ├── scaffolding.css
-│   ├── utilities.css
-│   ├── etc.
-```
-
-### Use Neptune Shared Styles bundle
-
-```js
-// Individual
-import '@transferwise/neptune-css/dist/css/neptune-shared-styles/button.css';
-
-// Full bundle
-import '@transferwise/neptune-css/dist/css/neptune.shared-styles.css';
-```
-
-## 4. Neptune Shared Components
+## 3. Neptune Shared Components
 
 **Neptune Shared Components** contains styles that are shared between React, Angular or plain HTML components.
 
 ```
 ├── neptune-shared-components/
 │   ├── alert.css
+│   ├── button.css
+│   ├── button-groups.css
 │   ├── circle.css
 │   ├── currency-flags.css
 │   ├── decision.css
 │   ├── dropdowns.css
 │   ├── droppable.css
+│   ├── forms.css
 │   ├── icons.css
+│   ├── input-groups.css
 │   ├── logos.css
 │   ├── media.css
 │   ├── navs.css
@@ -118,7 +99,7 @@ import '@transferwise/neptune-css/dist/css/neptune.shared-components.css';
 
 ## React Components
 
-Neptune Components written in React will have their individual styles in the component package closer to the implementation. The styles of these React components could possibly be bundled or distributed as individual CSS files for other technology stacks if needed.
+Components written in React will have the component styles in the same folder as the component.
 
 ## Legacy LESS Components
 
@@ -144,8 +125,6 @@ Why should we _not_ do this?
 
 # Alternatives
 
-Update TransferWise Bootstrap to new version which has better modularity built in, or start using other framework.
-
 # Adoption strategy
 
 Changing the CSS in this magnitude will break some components and layouts. We need to be careful to test this enough with our current applications.
@@ -153,5 +132,3 @@ Changing the CSS in this magnitude will break some components and layouts. We ne
 # How we teach this
 
 # Unresolved questions
-
-How to create the bundles from different monorepo packages. How to distribute variables for other applications to use.
