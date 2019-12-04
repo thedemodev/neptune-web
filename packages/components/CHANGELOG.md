@@ -752,7 +752,7 @@ Fix failing test and make code more clear
 ## Disable autocomplete for MoneyInput
 
 # v4.15.0
-## Add InstructionList component
+## Add InstructionsList component
 
 # v4.14.1
 ## Improve `MoneyInput` search
