@@ -1,23 +1,17 @@
 @import 'bootstrap/less/variables.less';
 
 .dos-and-donts {
-  display: flex;
-  flex-direction: column;
-
-  .item {
-    display: flex;
-
-    .do,
-    .dont {
-      flex-shrink: 0;
-    }
-
-    .do {
+  .instruction-list {
+    .tw-icon.do {
       color: @brand-green;
     }
 
-    .dont {
+    .tw-icon.dont {
       color: @brand-red;
+    }
+
+    .instruction + .instruction {
+      margin-top: 8px;
     }
   }
 }
