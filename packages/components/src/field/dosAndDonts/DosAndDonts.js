@@ -3,20 +3,20 @@ import Types from 'prop-types';
 import CloseIcon from '@transferwise/icons/react/close-circle';
 import TickCircleIcon from '@transferwise/icons/react/tick-circle';
 
-import './InstructionsList.css';
+import './DosAndDonts.css';
 
-const InstructionsList = ({ dos, donts }) => (
-  <div className="instructions">
+const DosAndDonts = ({ dos, donts }) => (
+  <div className="dos-and-donts">
     {dos.map((doThis, index) => (
       // eslint-disable-next-line react/no-array-index-key
-      <div className="instruction m-t-1" key={index}>
+      <div className="item m-t-1" key={index}>
         <TickCircleIcon className="do" />
         <p className="m-l-2 m-b-0 text-primary">{doThis}</p>
       </div>
     ))}
     {donts.map((dont, index) => (
       // eslint-disable-next-line react/no-array-index-key
-      <div className="instruction m-t-1" key={index}>
+      <div className="item m-t-1" key={index}>
         <CloseIcon className="dont" />
         <p className="m-l-2 m-b-0 text-primary">{dont}</p>
       </div>
@@ -24,14 +24,14 @@ const InstructionsList = ({ dos, donts }) => (
   </div>
 );
 
-InstructionsList.defaultProps = {
+DosAndDonts.defaultProps = {
   dos: [],
   donts: [],
 };
 
-InstructionsList.propTypes = {
+DosAndDonts.propTypes = {
   dos: Types.arrayOf(Types.string),
   donts: Types.arrayOf(Types.string),
 };
 
-export default InstructionsList;
+export default DosAndDonts;
