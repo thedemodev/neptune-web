@@ -11,7 +11,7 @@ const InstructionList = ({ instructions }) => (
     {instructions.map(({ icon, text, help, body }, i) => {
       return (
         // eslint-disable-next-line react/no-array-index-key
-        <div key={i} className="instruction m-t-3">
+        <div key={i} className="instruction">
           <div className="instruction__main">
             <div className="instruction__icon m-r-2">{icon}</div>
             <div className="instruction__text">
