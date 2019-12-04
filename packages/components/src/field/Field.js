@@ -6,7 +6,7 @@ import Alert from '../alert/Alert';
 import FormControl from '../formControl';
 import { Sizes } from '../common';
 import { FormControlType } from '../formControl/FormControlType';
-import InstructionsList from '../instructionsList';
+import DosAndDonts from './dosAndDonts';
 
 import { getControlType } from '../common/requirements';
 import { getValidationFailures } from '../jsonSchemaForm/validation/validation-failures';
@@ -264,7 +264,7 @@ export default class Field extends Component {
         type: Alert.Type.INFO,
         content: (
           <div className="m-b-1">
-            <InstructionsList dos={field.help.do} donts={field.help.dont} />
+            <DosAndDonts dos={field.help.do} donts={field.help.dont} />
           </div>
         ),
       };
