@@ -1,3 +1,1 @@
-import InstructionList from './InstructionList';
-
-export default InstructionList;
+export { default } from './InstructionList';

@@ -31,13 +31,11 @@ const InstructionListDocs = () => {
       text: 'You entered your card delivery address',
       body: (
         <>
-          <p>
-            Flat 3 Chaplin House, Shepperton Road
-            <br />
-            London N1 2NE
-            <br />
-            <a href="#foo">Edit address</a>
-          </p>
+          Flat 3 Chaplin House, Shepperton Road
+          <br />
+          London N1 2NE
+          <br />
+          <a href="#foo">Edit address</a>
         </>
       ),
       help: {
@@ -62,13 +60,11 @@ const InstructionListDocs = () => {
     text: 'You entered your card delivery address',
     body: (
       <>
-        <p>
-          Flat 3 Chaplin House, Shepperton Road
-          <br />
-          London N1 2NE
-          <br />
-          <a href="#foo">Edit address</a>
-        </p>
+        Flat 3 Chaplin House, Shepperton Road
+        <br />
+        London N1 2NE
+        <br />
+        <a href="#foo">Edit address</a>
       </>
     ),
     help: {

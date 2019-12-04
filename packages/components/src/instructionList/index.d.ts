@@ -4,10 +4,10 @@ export interface Instruction {
   icon: ReactNode;
   text: ReactNode;
   help?: {
-    title?: ReactNode | null;
+    title?: ReactNode;
     content: ReactNode;
   } | null;
-  body?: ReactNode | null;
+  body?: ReactNode;
 }
 
 export interface InstructionListProps {
