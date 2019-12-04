@@ -65,6 +65,7 @@ describe('Server side rendering', () => {
       type: 'string',
       label: 'hello',
     },
+    instructions: [],
   };
 
   // Override props in case of name collision.
