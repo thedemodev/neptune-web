@@ -20,7 +20,7 @@ const InstructionList = ({ className, instructions }) => (
             </div>
             {help && (
               <div className="instruction__help m-l-2">
-                <Popover preferredPlacement="top" title={help.title} content={help.content}>
+                <Popover preferredPlacement="bottom-left" title={help.title} content={help.content}>
                   <HelpCircleIcon size="sm" />
                 </Popover>
               </div>
