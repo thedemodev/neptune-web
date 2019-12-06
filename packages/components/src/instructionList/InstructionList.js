@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 import Types from 'prop-types';
 import HelpCircleIcon from '@transferwise/icons/react/help-circle';
@@ -6,8 +7,8 @@ import Popover from '../popover';
 
 import './InstructionList.css';
 
-const InstructionList = ({ instructions }) => (
-  <div className="instruction-list">
+const InstructionList = ({ className, instructions }) => (
+  <div className={classNames('instruction-list', className)}>
     {instructions.map(({ icon, text, help, body }, i) => {
       return (
         // eslint-disable-next-line react/no-array-index-key
@@ -33,6 +34,7 @@ const InstructionList = ({ instructions }) => (
 );
 
 InstructionList.propTypes = {
+  className: Types.string,
   instructions: Types.arrayOf(
     Types.shape({
       icon: Types.node.isRequired,
@@ -44,6 +46,10 @@ InstructionList.propTypes = {
       body: Types.node,
     }),
   ).isRequired,
+};
+
+InstructionList.defaultProps = {
+  className: null,
 };
 
 export default InstructionList;
