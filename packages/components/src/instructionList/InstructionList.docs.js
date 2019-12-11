@@ -9,7 +9,7 @@ const InstructionListDocs = () => {
   const instructions = [
     {
       icon: <MoneyIcon size="md" />,
-      text: 'Add money to your account',
+      text: <strong>Add money to your account</strong>,
       help: {
         title: 'Add money to your account',
         content: (
@@ -24,11 +24,11 @@ const InstructionListDocs = () => {
     },
     {
       icon: <IdIcon size="md" />,
-      text: 'You uploaded you identity documents',
+      text: <strong>You uploaded you identity documents</strong>,
     },
     {
       icon: <HomeIcon size="md" />,
-      text: 'You entered your card delivery address',
+      text: <strong>You entered your card delivery address</strong>,
       body: (
         <>
           Flat 3 Chaplin House, Shepperton Road
@@ -57,7 +57,7 @@ const InstructionListDocs = () => {
               <pre className="tw-docs-code">{`<InstructionList instructions={[
   {
     icon: <HomeIcon size="md" />,
-    text: 'You entered your card delivery address',
+    text: <strong>You entered your card delivery address</strong>,
     body: (
       <>
         Flat 3 Chaplin House, Shepperton Road

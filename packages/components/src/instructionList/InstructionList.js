@@ -15,9 +15,7 @@ const InstructionList = ({ className, instructions }) => (
         <div key={i} className="instruction">
           <div className="instruction__main">
             <div className="instruction__icon m-r-2">{icon}</div>
-            <div className="instruction__text">
-              <strong>{text}</strong>
-            </div>
+            <div className="instruction__text">{text}</div>
             {help && (
               <div className="instruction__help m-l-2">
                 <Popover preferredPlacement="bottom-left" title={help.title} content={help.content}>
