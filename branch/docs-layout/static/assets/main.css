@@ -132,12 +132,7 @@ img {
   max-width: 100%;
 }
 
-[class*='Flex'] {
-  width: 100%;
-  overflow: hidden;
-}
-
-[class*='Box'] {
+.Flex__Container {
   width: 100%;
   overflow: hidden;
 }
