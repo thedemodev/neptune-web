@@ -34,7 +34,7 @@ p + h2 {
 }
 
 .Logo {
-  height: 70px;
+  height: 64px;
   display: flex;
 }
 
@@ -169,12 +169,11 @@ img {
   overflow-x: auto;
 }
 
-/* .docs-table {
+.docs-table {
   border-radius: 3px 3px 0 0;
   overflow: hidden;
   border: 1px solid var(--brand-smoke-plus-20);
 }
-*/
 
 .docs-table > thead > tr > td,
 .docs-table > thead > tr > th {
