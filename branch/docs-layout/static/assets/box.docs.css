@@ -1,13 +1,13 @@
 #box .live-preview > div,
-#box div[class$='-Flex'] {
+#box .flex-docs {
   height: 100%;
 }
 
-#box div[class$='-Flex'] > :nth-child(2n) {
+#box .flex-docs > :nth-child(2n) {
   background-color: var(--brand-pale-blue-minus-10);
 }
 
-#box div[class$='-Flex'] > :nth-child(odd) {
+#box .flex-docs > :nth-child(odd) {
   background-color: var(--brand-pale-blue);
 }
 
