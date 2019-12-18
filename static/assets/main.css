@@ -1,81 +1,47 @@
-html,
-body {
-  height: 100%;
+/* Typography */
+h1 + p {
+  color: var(--brand-grey-plus-10);
 }
-#__next {
-  height: 100vh;
+
+@media (min-width: 767px) {
+  h1 + p {
+    font-size: calc(var(--spacer) * 2.5);
+    line-height: calc(var(--spacer) * 4);
+  }
 }
-img,
-svg {
-  max-width: 100%;
-  height: auto;
-  vertical-align: middle;
+
+h2,
+p + h2 {
+  margin-top: calc(var(--spacer) * 8);
+  margin-bottom: calc(var(--spacer) * 1);
 }
-pre {
-  margin-top: 24px;
-}
-.doc-bg {
-  background: #f2f5f7;
-}
-.doc-block {
-  margin-top: calc(8px * 6);
-  margin-top: calc(8px * 6);
-}
-.doc-section {
-  min-height: 50vh;
-}
-.doc-box {
-  height: 15vh;
-}
-.doc-color {
-  display: block;
-  padding: 16px;
-  font-weight: 600;
-  color: #2e4369;
-}
-.doc-dashed {
-  border: 1px dashed #829ca9;
-}
-.doc-example {
-  position: relative;
-  margin: 32px 0;
-  padding-bottom: 60px;
-}
-.doc-example .navbar-fixed-top,
-.doc-example .navbar-fixed-bottom {
-  position: absolute;
-}
-.doc-item {
-  padding: 8px;
-}
-.doc-text--inverse {
-  color: #fff;
-}
-.PageLayout {
-  display: grid;
-  grid-template-columns: 200px auto;
-  min-height: 100vh;
-}
+
+/* Layout  */
+
 .PageLayout__Inner {
-  display: grid;
-  grid-template-columns: 200px auto;
-  background: #f2f5f7;
+  background: var(--brand-smoke-plus-20);
 }
-.PageLayout__Inner--nosidebar {
-  grid-template-columns: auto;
-}
+
 .Header {
   background: #37517e;
+  min-height: 100vh;
 }
+
 .Header__Fixed {
   width: 200px;
   height: 100vh;
   position: fixed;
 }
+
 .Logo {
-  height: 70px;
+  height: 64px;
   display: flex;
 }
+
+.Logo svg {
+  height: 100%;
+}
+
 .Sidebar__Fixed {
   display: flex;
   flex-direction: column;
@@ -83,19 +49,24 @@ pre {
   width: 200px;
   height: 100vh;
   position: fixed;
+  background-color: var(--brand-smoke-plus-20);
 }
+
 .Sidebar__Header {
   padding: 20px 24px;
 }
+
 .Sidebar__Inner {
   overflow-y: auto;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
+
 .Sidebar__Title {
   margin: 0;
 }
+
 .Nav {
   font-size: 14px;
   overflow-y: auto;
@@ -104,6 +75,7 @@ pre {
   border-top: 1px solid #e2e6e8;
   margin-bottom: 0;
 }
+
 .Nav__Link {
   display: block;
   padding: 18px 24px 16px;
@@ -114,29 +86,120 @@ pre {
   transition: color 0.15s;
   outline: 0 !important;
 }
+
 .Nav__Link:hover,
 .Nav__Link.active {
   text-decoration: none;
 }
+
 .Nav__Link.active {
   color: #00a4df;
   font-weight: bold;
   background: #fff;
 }
+
 .Nav--dark {
   border-top: 1px solid #4c638a;
 }
+
 .Nav--dark .Nav__Link {
   padding: 9px 24px 7px;
   border-bottom: 0;
   color: #fff;
 }
+
 .Nav--dark .Nav__Link.active {
   background: #2e4369;
   color: #00a4df;
 }
+
 .Content {
-  padding: 24px 32px;
-  max-width: 1012px;
+  min-height: 100vh;
+  padding: calc(var(--spacer) * 4) calc(var(--spacer) * 4);
+  position: relative;
+  width: 100%;
   background: #fff;
+}
+
+@media (min-width: 767px) {
+  .Content {
+    padding: calc(var(--spacer) * 4) calc(var(--spacer) * 5);
+    max-width: 1012px;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+.Flex__Container {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Live editor */
+.live-provider {
+  margin: calc(var(--spacer) * 3) 0 0;
+}
+
+.live-editor {
+  background: var(--brand-smoke-plus-20);
+  border: 1px solid var(--brand-smoke);
+  border-radius: 3px;
+}
+
+@media (min-width: 1200px) {
+  .live-preview {
+    padding-left: calc(var(--spacer) * 4);
+  }
+}
+
+.live-editor textarea {
+  outline: none;
+}
+
+/* docs-table */
+.scroll-table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.docs-table {
+  border-radius: 3px 3px 0 0;
+  overflow: hidden;
+  border: 1px solid var(--brand-smoke-plus-20);
+}
+
+.docs-table > thead > tr > td,
+.docs-table > thead > tr > th {
+  padding: calc(var(--spacer) * 2) calc(var(--spacer) * 3) !important;
+}
+
+.docs-table > tbody > tr > td,
+.docs-table > tbody > tr > th {
+  padding: calc(var(--spacer) * 3) calc(var(--spacer) * 3) !important;
+}
+
+.docs-table .table-condensed > tbody > tr > td,
+.docs-table .table-condensed > tbody > tr > th {
+  padding: calc(var(--spacer) * 2) calc(var(--spacer) * 3) !important;
+}
+
+.docs-table > thead {
+  color: white;
+  background-color: var(--brand-navy);
+}
+
+.docs-table > tbody > tr > th {
+  padding-left: 5px;
+  color: var(--brand-navy);
+}
+
+.docs-table ul {
+  padding: 0;
+  margin-bottom: var(--spacer);
+}
+
+.docs-table li {
+  list-style-type: none;
 }
