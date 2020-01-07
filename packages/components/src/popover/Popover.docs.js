@@ -4,7 +4,9 @@ import classNames from 'classnames';
 import { Popover } from '..';
 import { generateCodeBlock, generateInput, generateState } from '../../docs/utils';
 
-import { PlacementValues } from './Placement';
+import { Position } from '../common';
+
+const PlacementValues = Object.keys(Position).map(key => Position[key]);
 
 const KNOBS = {
   knobs: [

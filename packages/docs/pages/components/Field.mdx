@@ -1,0 +1,10 @@
+import { LiveEditorBlock, GeneratePropsTable } from '../../utils';
+import { Field, Button } from '@transferwise/components';
+import code from '../../liveEditorCode/field.code';
+
+<LiveEditorBlock code={code} scope={{ Field }} />
+<GeneratePropsTable componentName="Field" />
+
+export const meta = {
+  name: 'Field',
+};

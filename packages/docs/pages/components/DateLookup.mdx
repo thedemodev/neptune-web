@@ -1,8 +1,10 @@
-TODO
+import { LiveEditorBlock, GeneratePropsTable } from '../../utils';
+import { DateLookup } from '@transferwise/components';
+import code from '../../liveEditorCode/dateLookup.code';
+
+<LiveEditorBlock code={code} scope={{ DateLookup }} />
+<GeneratePropsTable componentName="DateLookup" />
 
 export const meta = {
-  abstractURL: '',
   name: 'Date Lookup',
-  size: '',
-  isPlaceholder: true,
 };

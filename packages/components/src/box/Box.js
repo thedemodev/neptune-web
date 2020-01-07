@@ -1,26 +1,26 @@
 /** @jsx jsx */
+/* eslint-disable */
 import { jsx } from '@emotion/core';
-import classNames from 'classnames';
 import Types from 'prop-types';
 
-import { Sizes, JustifyContent, AlignItems, mediaQueries } from '../common';
+import { Size, JustifyContent, AlignItems, Breakpoint, Spacer } from '../common';
+
+const mediaQueries = Object.values(Breakpoint).map(bp => `@media (min-width: ${bp}px)`);
 
 const Box = props => {
   const {
+    as: Element,
     size,
     justifyContent,
     alignItems,
     children,
-    extraClassNames,
+    className,
     marginX,
     paddingX,
     marginY,
     paddingY,
-    tagHtml,
     customMediaQueries,
   } = props;
-
-  const Tag = tagHtml;
 
   const getFlex = breakpoint => {
     const style = { flex: 0, display: 'none' };
@@ -34,53 +34,49 @@ const Box = props => {
 
   const style = {
     [customMediaQueries[0]]: {
-      ...getFlex(Sizes.EXTRA_SMALL),
+      ...getFlex(Size.EXTRA_SMALL),
     },
     [customMediaQueries[1]]: {
-      ...getFlex(Sizes.SMALL),
+      ...getFlex(Size.SMALL),
     },
     [customMediaQueries[2]]: {
-      ...getFlex(Sizes.MEDIUM),
+      ...getFlex(Size.MEDIUM),
     },
     [customMediaQueries[3]]: {
-      ...getFlex(Sizes.LARGE),
+      ...getFlex(Size.LARGE),
     },
     [customMediaQueries[4]]: {
-      ...getFlex(Sizes.EXTRA_LARGE),
+      ...getFlex(Size.EXTRA_LARGE),
     },
   };
 
+  if (justifyContent) {
+    style.justifyContent = justifyContent;
+  }
+  if (alignItems) {
+    style.alignItems = alignItems;
+  }
+
+  style.margin = `${Spacer * marginY}px  ${Spacer * marginX}px`;
+  style.padding = `${Spacer * paddingY}px  ${Spacer * paddingX}px`;
+
   return size ? (
-    <Tag
-      className={classNames(
-        'flex__inner',
-        {
-          [`justify-content-${justifyContent}`]: justifyContent,
-          [`align-items-${alignItems}`]: alignItems,
-          [`m-x-${marginX}`]: marginX !== null,
-          [`p-x-${paddingX}`]: paddingX !== null,
-          [`m-y-${marginY}`]: marginY !== null,
-          [`p-y-${paddingY}`]: paddingY !== null,
-        },
-        ...extraClassNames,
-      )}
-      css={style}
-    >
+    <Element className={className} css={style}>
       {children}
-    </Tag>
+    </Element>
   ) : null;
 };
 
 Box.propTypes = {
   alignItems: Types.oneOf([...Object.values(AlignItems)]),
   children: Types.oneOfType([Types.arrayOf(Types.node), Types.node]),
-  extraClassNames: Types.arrayOf(Types.string),
+  className: Types.string,
   justifyContent: Types.oneOf([...Object.values(JustifyContent)]),
   marginX: Types.number,
   marginY: Types.number,
   paddingX: Types.number,
   paddingY: Types.number,
-  tagHtml: Types.string,
+  as: Types.elementType,
   size: Types.shape({
     lg: Types.number,
     md: Types.number,
@@ -95,12 +91,12 @@ Box.defaultProps = {
   justifyContent: null,
   alignItems: null,
   children: null,
-  extraClassNames: [],
+  className: '',
   paddingX: 0,
   marginX: 0,
   paddingY: 0,
   marginY: 0,
-  tagHtml: 'div',
+  as: 'div',
   customMediaQueries: mediaQueries,
 };
 

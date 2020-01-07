@@ -1,8 +1,10 @@
-TODO
+import { LiveEditorBlock, GeneratePropsTable } from '../../utils';
+import { PhoneNumberInput } from '@transferwise/components';
+import code from '../../liveEditorCode/phoneNumberInput.code';
+
+<LiveEditorBlock code={code} scope={{ PhoneNumberInput }} />
+<GeneratePropsTable componentName="PhoneNumberInput" />
 
 export const meta = {
-  abstractURL: '',
-  name: 'Phone Number Input',
-  size: '',
-  isPlaceholder: true,
+  name: 'PhoneNumber Input',
 };

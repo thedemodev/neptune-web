@@ -26,7 +26,7 @@ export { default as RadioGroup } from './radioGroup';
 export { default as Alert } from './alert';
 export { default as InputWithDisplayFormat } from './inputWithDisplayFormat';
 export { default as TextareaWithDisplayFormat } from './textareaWithDisplayFormat';
-export { default as Chevron } from './common/Chevron';
+export { default as Chevron } from './chevron';
 export { default as Accordion } from './accordion';
 export { default as Dimmer } from './dimmer';
 export { default as SlidingPanel } from './slidingPanel';
@@ -46,5 +46,5 @@ export { default as Tabs } from './tabs';
 
 // These should be used only internally as block of layout pages. Direct use is discouraged and will easily introduce
 // inconsistencies.
-// export { default as Box } from './box';
-// export { default as Flex } from './flex';
+export { default as Box } from './box';
+export { default as Flex } from './flex';

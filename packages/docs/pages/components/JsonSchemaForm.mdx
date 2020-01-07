@@ -1,0 +1,10 @@
+import { LiveEditorBlock, GeneratePropsTable } from '../../utils';
+import JsonSchemaForm from '@transferwise/components/src/jsonSchemaForm';
+import code from '../../liveEditorCode/jsonSchemaForm.code';
+
+<LiveEditorBlock code={code} scope={{ JsonSchemaForm }} />
+<GeneratePropsTable componentName="JsonSchemaForm" />
+
+export const meta = {
+  name: 'Json Schema Form',
+};

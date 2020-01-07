@@ -1,8 +1,10 @@
-TODO
+import { LiveEditorBlock, GeneratePropsTable } from '../../utils';
+import { Stepper } from '@transferwise/components';
+import code from '../../liveEditorCode/stepper.code';
+
+<LiveEditorBlock code={code} scope={{ Stepper }} display="vertical" />
+<GeneratePropsTable componentName="Stepper" />
 
 export const meta = {
-  abstractURL: '',
   name: 'Stepper',
-  size: '',
-  isPlaceholder: true,
 };

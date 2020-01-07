@@ -16,7 +16,7 @@ const pageExtensions = ['js', 'mdx'];
 const branch = getBranch.sync();
 const assetPrefix =
   process.env.NODE_ENV === 'production'
-    ? `/neptune${branch !== 'master' ? `/branch/${branch}` : ''}`
+    ? `/neptune-web${branch !== 'master' ? `/branch/${branch}` : ''}`
     : '';
 
 module.exports = () =>
@@ -30,6 +30,14 @@ module.exports = () =>
             assetPrefix,
             env: {
               ASSET_PREFIX: assetPrefix,
+            },
+            webpack: config => {
+              config.module.rules.push({
+                test: /\.code.js$/,
+                use: 'raw-loader',
+              });
+
+              return config;
             },
           }),
         ),

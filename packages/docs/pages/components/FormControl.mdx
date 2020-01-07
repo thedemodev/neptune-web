@@ -1,0 +1,10 @@
+import { LiveEditorBlock, GeneratePropsTable } from '../../utils';
+import { FormControl } from '@transferwise/components';
+import code from '../../liveEditorCode/formcontrol.code';
+
+<LiveEditorBlock code={code} scope={{ FormControl }} />
+<GeneratePropsTable componentName="FormControl" />
+
+export const meta = {
+  name: 'Form Control',
+};

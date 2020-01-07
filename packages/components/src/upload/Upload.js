@@ -67,10 +67,10 @@ class Upload extends PureComponent {
   }
 
   onAnimationCompleted = async status => {
-    const { response } = this.state;
+    const { response, isProcessing } = this.state;
     // Success.
     const { animationDelay } = this.props;
-    if (status === ProcessIndicator.Status.Succeeded) {
+    if (isProcessing && status === ProcessIndicator.Status.SUCCEEDED) {
       const { onSuccess } = this.props;
       this.timeouts = setTimeout(() => {
         this.setState(
@@ -83,7 +83,7 @@ class Upload extends PureComponent {
       }, animationDelay);
     }
     // Failure.
-    if (status === ProcessIndicator.Status.Failed) {
+    if (isProcessing && status === ProcessIndicator.Status.FAILED) {
       const { onFailure } = this.props;
       this.timeouts = setTimeout(() => {
         this.setState(
@@ -321,7 +321,13 @@ Upload.propTypes = {
   csSuccessText: Types.string,
   csTooLargeMessage: Types.string,
   csWrongTypeMessage: Types.string,
-  httpOptions: Types.shape({ url: Types.string }),
+  httpOptions: Types.shape({
+    url: Types.string.isRequired,
+    method: Types.oneOf(['POST', 'PUT', 'PATCH']),
+    fileInputName: Types.string,
+    data: Types.object,
+    headers: Types.object,
+  }),
   maxSize: Types.number,
   onCancel: Types.func,
   onFailure: Types.func,

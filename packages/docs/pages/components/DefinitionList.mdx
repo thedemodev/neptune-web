@@ -1,8 +1,10 @@
-TODO
+import { LiveEditorBlock, GeneratePropsTable } from '../../utils';
+import { DefinitionList } from '@transferwise/components';
+import code from '../../liveEditorCode/definitionList.code';
+
+<LiveEditorBlock code={code} scope={{ DefinitionList }} />
+<GeneratePropsTable componentName="DefinitionList" />
 
 export const meta = {
-  abstractURL: '',
   name: 'Definition List',
-  size: '',
-  isPlaceholder: true,
 };
