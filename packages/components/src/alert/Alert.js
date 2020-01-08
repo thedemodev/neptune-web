@@ -3,10 +3,10 @@ import Types from 'prop-types';
 
 import classNames from 'classnames';
 import requiredIf from 'react-required-if';
-import { Size, MessageType, ArrowPosition } from '../common';
+import { Size, MessageType, ArrowPosition, pickProps } from '../common';
 
 export default class Alert extends Component {
-  static Size = Size;
+  static Size = pickProps(Size, [Size.SMALL, Size.LARGE]);
   static Type = MessageType;
   static ArrowPosition = ArrowPosition;
 

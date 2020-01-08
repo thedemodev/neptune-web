@@ -5,7 +5,7 @@ import requiredIf from 'react-required-if';
 
 import './Button.css';
 
-import { Size, Type } from '../common';
+import { Size, Type, pickProps } from '../common';
 
 const Button = ({
   className,
@@ -40,7 +40,7 @@ const Button = ({
 };
 
 Button.Type = Type;
-Button.Size = Size;
+Button.Size = pickProps(Size, [Size.EXTRA_SMALL, Size.SMALL, Size.MEDIUM, Size.LARGE]);
 
 Button.propTypes = {
   className: Types.string,

@@ -15,3 +15,14 @@ export { FormControlType } from './propsValues/formControlType';
 export { Status } from './propsValues/status';
 export { MessageType } from './propsValues/messageType';
 export { JustifyContent, AlignItems, FlexDirection, Spacer } from './propsValues/flexProperties';
+
+export function pickProps(originalProps, values) {
+  const extractedProps = {};
+  Object.keys(originalProps).forEach(key => {
+    const value = originalProps[key];
+    if (values.indexOf(value) > -1) {
+      extractedProps[key] = value;
+    }
+  });
+  return extractedProps;
+}
