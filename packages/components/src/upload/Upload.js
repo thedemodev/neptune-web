@@ -8,17 +8,7 @@ import './Upload.css';
 import ProcessIndicator from '../processIndicator';
 
 const PROCESS_STATE = ['error', 'success'];
-/*
- * Do not add `text/csv` to the accepted formats.
- * This mime type is not supported by win7 browsers.
- * At Win7 Chrome/Firefox/IE11 mime type looks empty, and so upload is blocked
- * Use `*` for `text/csv` and make type check in backend.
- * Reference:
- * https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/ms775147(v=vs.85)?redirectedfrom=MSDN
- * https://cs.chromium.org/chromium/src/net/base/mime_util.cc?q=mime&sq=package:chromium&g=0&l=1
- * https://transferwise.slack.com/archives/CJNBX9CP6/p1580208301003500
- */
-const ACCEPTED_FORMAT = ['*', 'image/*', 'application/*'];
+const ACCEPTED_FORMAT = ['*', 'image/*', 'application/*', 'text/csv'];
 
 /*
  * This delay is required for the isError/isSuccess to be fired after isProcessing so the processIndicator, will be
