@@ -1,5 +1,4 @@
 /** @jsx jsx */
-/* eslint-disable */
 import { jsx } from '@emotion/core';
 import Types from 'prop-types';
 
