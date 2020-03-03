@@ -18,6 +18,7 @@ const umdConfig = {
         modules: false,
       },
     ],
+    '@emotion/babel-preset-css-prop',
   ],
 };
 
@@ -31,6 +32,7 @@ const umdConfigNoPolyfill = {
         modules: false,
       },
     ],
+    '@emotion/babel-preset-css-prop',
   ],
 };
 
@@ -47,6 +49,7 @@ const esConfig = {
         modules: false,
       },
     ],
+    '@emotion/babel-preset-css-prop',
     [
       'minify',
       {
@@ -65,6 +68,7 @@ const esConfigNoPolyfill = {
         builtIns: false,
       },
     ],
+    '@emotion/babel-preset-css-prop',
   ],
 };
 
@@ -80,16 +84,13 @@ const testConfig = {
       },
     ],
   ],
+  plugins: ['@babel/plugin-transform-react-jsx'],
 };
 
 module.exports = {
   // "unambiguous" - Consider the file a "module" if import/export statements are present, or else consider it a "script".
   sourceType: 'unambiguous',
-  plugins: [
-    '@babel/plugin-proposal-class-properties',
-    '@babel/plugin-transform-react-jsx',
-    '@babel/plugin-transform-runtime',
-  ],
+  plugins: ['@babel/plugin-proposal-class-properties', '@babel/plugin-transform-runtime'],
   env: {
     test: testConfig,
     umd: umdConfig,
