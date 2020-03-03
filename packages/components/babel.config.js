@@ -18,7 +18,7 @@ const umdConfig = {
         modules: false,
       },
     ],
-    '@emotion/babel-preset-css-prop',
+    ['@emotion/babel-preset-css-prop', { sourceMap: false }],
   ],
 };
 
@@ -32,7 +32,7 @@ const umdConfigNoPolyfill = {
         modules: false,
       },
     ],
-    '@emotion/babel-preset-css-prop',
+    ['@emotion/babel-preset-css-prop', { sourceMap: false }],
   ],
 };
 
@@ -49,7 +49,7 @@ const esConfig = {
         modules: false,
       },
     ],
-    '@emotion/babel-preset-css-prop',
+    ['@emotion/babel-preset-css-prop', { sourceMap: false }],
     [
       'minify',
       {
@@ -68,7 +68,7 @@ const esConfigNoPolyfill = {
         builtIns: false,
       },
     ],
-    '@emotion/babel-preset-css-prop',
+    ['@emotion/babel-preset-css-prop', { sourceMap: false }],
   ],
 };
 
