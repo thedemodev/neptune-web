@@ -1,16 +1,27 @@
 import { LiveEditorBlock, GeneratePropsTable } from '../../utils';
-import Flex from '@transferwise/components/src/flex';
-import Box from '@transferwise/components/src/box';
+import {Flex ,Box,Alert} from '@transferwise/components';
+
+
 import '../../static/assets/box.docs.css';
 import '@transferwise/neptune-css/dist/css/flex.css';
 import code from '../../liveEditorCode/flexbox.code';
+
+<Alert
+  size={Alert.Size.SMALL}
+  arrow={Alert.ArrowPosition.TOP_LEFT}
+  type={Alert.Type.WARNING}
+>
+  @DEPRECATED <br/>
+  Flex and Box should only be used only internally to create layout pages. Direct use is discouraged and default export will be removed soon.
+</Alert>
 
 <div id="box">
   <LiveEditorBlock code={code} scope={{ Flex, Box }} />
   <GeneratePropsTable componentName="Flex" />
 </div>
 
-## Flex
+
+
 
 Flex offers a display flex container for Box. It also offers the possibility to switch direction based on breakpoints.
 Here an example of swithcing direction:
