@@ -1,5 +1,5 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
+import React from 'react';
+import { css } from '@emotion/core';
 import Types from 'prop-types';
 
 import { Size, JustifyContent, AlignItems, Breakpoint, Spacer } from '../common';
@@ -62,7 +62,12 @@ const Box = props => {
   style.padding = `${Spacer * paddingY}px  ${Spacer * paddingX}px`;
 
   return size ? (
-    <Element className={className} css={style}>
+    <Element
+      className={className}
+      css={css`
+        ${style}
+      `}
+    >
       {children}
     </Element>
   ) : null;

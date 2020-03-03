@@ -1,6 +1,5 @@
-/** @jsx jsx */
 import React from 'react';
-import { jsx } from '@emotion/core';
+import { css } from '@emotion/core';
 import Types from 'prop-types';
 import { Size, FlexDirection, Breakpoint } from '../common';
 
@@ -48,7 +47,12 @@ const Flex = props => {
   style.display = 'flex';
 
   return (
-    <Element className={className} css={style}>
+    <Element
+      className={className}
+      css={css`
+        ${style}
+      `}
+    >
       {React.Children.map(children, child => {
         if (child && child.type && child.type.name === 'Box') {
           const childrenProps = { ...child.props, marginX, paddingX, marginY, paddingY };
