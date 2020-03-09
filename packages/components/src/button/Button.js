@@ -3,7 +3,7 @@ import Types from 'prop-types';
 import classNames from 'classnames';
 import requiredIf from 'react-required-if';
 
-import './Button.css';
+import styles from './Button.module.css';
 
 import { Size, Type } from '../common';
 
@@ -18,23 +18,23 @@ const Button = ({
   type,
   ...rest
 }) => {
-  const classes = classNames(
-    `btn btn-${size}`,
-    `tw-btn tw-btn-${size}`,
-    {
-      'btn-loading': loading,
-      'btn-primary': type === Type.PRIMARY,
-      'btn-success': type === Type.PAY,
-      'btn-default': type === Type.SECONDARY,
-      'btn-danger': type === Type.DANGER,
-      'btn-link': type === Type.LINK,
-      'btn-block tw-btn-block': block,
-    },
-    className,
-  );
+  // const classes = classNames(
+  //   `btn btn-${size}`,
+  //   `tw-btn tw-btn-${size}`,
+  //   {
+  //     'btn-loading': loading,
+  //     'btn-primary': type === Type.PRIMARY,
+  //     'btn-success': type === Type.PAY,
+  //     'btn-default': type === Type.SECONDARY,
+  //     'btn-danger': type === Type.DANGER,
+  //     'btn-link': type === Type.LINK,
+  //     'btn-block tw-btn-block': block,
+  //   },
+  //   className,
+  // );
 
   return (
-    <button type={htmlType} className={classes} disabled={disabled || loading} {...rest}>
+    <button type={htmlType} className={styles.btn} disabled={disabled || loading} {...rest}>
       {children}
       {loading && <span className={classNames('btn-loader', { 'm-l-2': !block })} />}
     </button>
