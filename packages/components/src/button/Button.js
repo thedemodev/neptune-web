@@ -18,23 +18,13 @@ const Button = ({
   type,
   ...rest
 }) => {
-  // const classes = classNames(
-  //   `btn btn-${size}`,
-  //   `tw-btn tw-btn-${size}`,
-  //   {
-  //     'btn-loading': loading,
-  //     'btn-primary': type === Type.PRIMARY,
-  //     'btn-success': type === Type.PAY,
-  //     'btn-default': type === Type.SECONDARY,
-  //     'btn-danger': type === Type.DANGER,
-  //     'btn-link': type === Type.LINK,
-  //     'btn-block tw-btn-block': block,
-  //   },
-  //   className,
-  // );
+  const classes = classNames(
+    `${styles.btn} ${styles[size] || ''}  ${styles[type] || ''}`,
+    className,
+  );
 
   return (
-    <button type={htmlType} className={styles.btn} disabled={disabled || loading} {...rest}>
+    <button type={htmlType} className={classes} disabled={disabled || loading} {...rest}>
       {children}
       {loading && <span className={classNames('btn-loader', { 'm-l-2': !block })} />}
     </button>
@@ -53,12 +43,7 @@ Button.propTypes = {
     Button.Type.DANGER,
     Button.Type.LINK,
   ]),
-  size: Types.oneOf([
-    Button.Size.EXTRA_SMALL,
-    Button.Size.SMALL,
-    Button.Size.MEDIUM,
-    Button.Size.LARGE,
-  ]),
+  size: Types.oneOf([Button.Size.SMALL, Button.Size.MEDIUM]),
   disabled: Types.bool,
   block: Types.bool,
   loading: Types.bool,

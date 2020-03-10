@@ -1,0 +1,50 @@
+.btn {
+  background-color: var(--primary-color, white);
+  border-radius: var(--border-radius, 2px);
+  border: 1px solid transparent;
+
+  color: var(--text-on-primary);
+  cursor: pointer;
+  display: inline-block;
+
+  font-family: var(--font, 'Arial');
+  font-size: var(--space-2);
+  font-weight: var(--weight-2);
+
+  height: var(--space-6, 32px);
+
+  padding-left: var(--space-3, 12px);
+  padding-right: var(--space-3, 12px);
+
+  text-align: center;
+}
+
+.sm {
+  padding-left: var(--space-2, 12px);
+  padding-right: var(--space-2, 12px);
+
+  height: var(--space-4, 32px);
+
+  font-size: 14px;
+}
+
+.pay {
+  background-color: var(--pay-color, white);
+}
+
+.secondary {
+  background-color: white;
+  border-color: var(--primary-color, black);
+  color: var(--primary-color, black);
+}
+
+.danger {
+  background-color: white;
+  border-color: var(--danger-color, black);
+  color: var(--danger-color, black);
+}
+
+.danger:hover {
+  background-color: var(--danger-color, black);
+  color: var(--text-on-primary);
+}

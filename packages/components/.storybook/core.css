@@ -1,0 +1,24 @@
+:root {
+  --primary-color: rgb(0, 185, 255);
+  --pay-color: rgb(46, 208, 110);
+  --danger-color: #f53636;
+  --text-on-primary: white;
+
+  --font: Averta, 'Avenir W02', Avenir, Helvetica, Arial, sans-serif;
+  --weight-1: 400;
+  --weight-2: 600;
+  --weight-3: 800;
+
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+
+  --border-radius: 3px;
+}
+
+.primary-background {
+  background: var(--primary-color);
+}
