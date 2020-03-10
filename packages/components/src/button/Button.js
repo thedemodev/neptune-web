@@ -1,7 +1,12 @@
 import React from 'react';
+import { css } from '@emotion/core';
+import { style, stylePrimary } from './Button.style';
+
 import Types from 'prop-types';
 import classNames from 'classnames';
 import requiredIf from 'react-required-if';
+
+// I'd refactor and clean up this so bad!
 
 import './Button.css';
 
@@ -18,12 +23,15 @@ const Button = ({
   type,
   ...rest
 }) => {
+  let buttonStyle = {};
+  if (Type.PRIMARY) {
+    buttonStyle = { ...style, ...stylePrimary };
+  }
   const classes = classNames(
-    `btn btn-${size}`,
+    `btn-${size}`,
     `tw-btn tw-btn-${size}`,
     {
       'btn-loading': loading,
-      'btn-primary': type === Type.PRIMARY,
       'btn-success': type === Type.PAY,
       'btn-default': type === Type.SECONDARY,
       'btn-danger': type === Type.DANGER,
@@ -34,7 +42,15 @@ const Button = ({
   );
 
   return (
-    <button type={htmlType} className={classes} disabled={disabled || loading} {...rest}>
+    <button
+      className={classes}
+      css={css`
+        ${buttonStyle}
+      `}
+      type={htmlType}
+      disabled={disabled || loading}
+      {...rest}
+    >
       {children}
       {loading && <span className={classNames('btn-loader', { 'm-l-2': !block })} />}
     </button>
