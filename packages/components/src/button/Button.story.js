@@ -1,7 +1,10 @@
 import React from 'react';
-import Button from './Button';
+import Button from '../../build/es/polyfill/Button/button';
+
 import { action } from '@storybook/addon-actions';
 import { boolean, select, text } from '@storybook/addon-knobs';
+
+import '../../build/es/polyfill/button.css';
 
 export default {
   component: Button,

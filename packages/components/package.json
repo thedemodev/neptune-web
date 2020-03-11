@@ -34,7 +34,10 @@
     "test:watch": "jest --watch --env=jsdom",
     "test:bundleSize": "bundlesize",
     "lint": "eslint 'src/**/*.js'",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "clean": "rm -rf build",
+    "go": "run-s clean go:js",
+    "go:js": "NODE_ENV=es rollup -c ./rollup.config.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.0",
