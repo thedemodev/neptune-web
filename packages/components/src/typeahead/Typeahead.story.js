@@ -1,5 +1,6 @@
 import React from 'react';
 import Typeahead from './Typeahead';
+import Chip from '../chip';
 
 import { boolean } from '@storybook/addon-knobs';
 
@@ -63,6 +64,7 @@ export const basic = () => {
       placeholder="placeholder"
       chipSeparators={[',', ' ']}
       validateChip={validateChip}
+      createChip={props => <Chip {...props} />}
       alert={{ message: 'alert message', type: 'success' }}
       onSearch={() => {
         setTimeout(() => setOptions(options), 1500);
