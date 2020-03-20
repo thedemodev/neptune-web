@@ -48,6 +48,8 @@
       showSuggestions
       placeholder="placeholder"
       chipSeparators={[',', ' ']}
+      // add your custom chip render function here
+      createChip={undefined}
       validateChip={validateChip}
       alert={{ message: 'alert message', type: 'success' }}
       onSearch={() => {

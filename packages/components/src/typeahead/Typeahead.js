@@ -29,6 +29,7 @@ export default class Typeahead extends Component {
   static Type = MessageType;
   static propTypes = {
     id: Types.string.isRequired,
+    createChip: Types.func,
     name: Types.string.isRequired,
     options: Types.arrayOf(
       Types.shape({
@@ -77,6 +78,7 @@ export default class Typeahead extends Component {
     multiple: false,
     maxHeight: null,
     showSuggestions: true,
+    createChip: props => <Chip {...props} />,
     showNewEntry: true,
     searchDelay: SEARCH_DELAY,
     minQueryLength: DEFAULT_MIN_QUERY_LENGTH,
@@ -347,9 +349,9 @@ export default class Typeahead extends Component {
 
   renderChip = (option, idx) => {
     const valid = this.props.validateChip(option);
-
+    const { createChip: TypeHeadChip } = this.props;
     return (
-      <Chip
+      <TypeHeadChip
         key={idx}
         hasError={!valid}
         label={option.label}
