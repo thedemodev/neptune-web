@@ -3871,15 +3871,10 @@
     "@testing-library/dom" "^6.11.0"
     "@types/testing-library__react" "^9.1.2"
 
-"@transferwise/eslint-config@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@transferwise/eslint-config/-/eslint-config-2.1.0.tgz#e8e1b9c8170e9bd4d12ed5209253220b06a6631c"
-  integrity sha512-sw9wEuc3iKkMAlIOfrdysEFyhifhinjoKinNPK/wHPxrOrRbU2Ja0JpZN8WyrReqHoP5Qu4rOdj2eqbjaoK+Gw==
-
-"@transferwise/eslint-config@^4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@transferwise/eslint-config/-/eslint-config-4.0.1.tgz#d0ebae94906c0afd8658b720a17a1a993eae4a4e"
-  integrity sha512-VBUsK3UvGH7Y9LIZE01BqlZEzrIojAg/NslIfqQEqYszvZk6KhBFCrZUVXXMblHV0xU9y9j/Nv6m1bgQPWm/EA==
+"@transferwise/eslint-config@^5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@transferwise/eslint-config/-/eslint-config-5.0.3.tgz#171e43a6d65247ae451df3bb7f121ddd5b5c5fe2"
+  integrity sha512-jeo4oqFGj0LI2zVlmRgamn92ivynPTMkIbHNm34yYIOjNrmW0aag8pThIHQGVlvKibiAUdldZ9dLLztKb6gwGA==
   dependencies:
     babel-eslint "^10.0.3"
     eslint-config-airbnb "^18.0.1"
