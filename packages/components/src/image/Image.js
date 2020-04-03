@@ -1,7 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import Types from 'prop-types';
 import { useIsVisible } from '../hooks';
-import { isImageValid } from './utils/isImageValid';
 
 /**
  * Image.
@@ -20,15 +19,6 @@ const Image = ({ id, src, alt, onLoad, onError, className, withLazy }) => {
   const imageRef = useRef();
   // This needs to be always included because hooks cannot be called inside conditions/loops.
   const [isVisible] = useIsVisible(imageRef);
-
-  useEffect(() => {
-    isImageValid(src)
-      .then(() => {
-        handleLoad();
-      })
-      .catch(errorEvent => handleError(errorEvent));
-  }, []);
-
   let imageSrc = src;
   // Prevent load if image is not visible and lazyload is enabled.
   if (withLazy) {
@@ -37,19 +27,21 @@ const Image = ({ id, src, alt, onLoad, onError, className, withLazy }) => {
     }
   }
 
-  const handleError = errorEvent => {
-    if (onError) {
-      onError(errorEvent);
-    }
-  };
+  const handleError = e => onError && onError(e);
 
-  const handleLoad = () => {
-    if (onLoad) {
-      onLoad();
-    }
-  };
+  const handleLoad = () => onLoad && onLoad();
 
-  return <img id={id} alt={alt} src={imageSrc} className={className} ref={imageRef} />;
+  return (
+    <img
+      id={id}
+      alt={alt}
+      src={imageSrc}
+      className={className}
+      ref={imageRef}
+      onLoad={() => handleLoad()}
+      onError={e => handleError(e)}
+    />
+  );
 };
 
 Image.propTypes = {

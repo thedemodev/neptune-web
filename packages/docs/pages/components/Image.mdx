@@ -2,18 +2,10 @@ import { LiveEditorBlock, GeneratePropsTable } from '../../utils';
 import { Image } from '@transferwise/components';
 import code from '../../liveEditorCode/image.code';
 
-
-Image component renders an img tag with some additional functionalities:
-- onError and Onload events events on SSR. 
-At the moment there's a known [bug](https://github.com/facebook/react/issues/15446) regarding onError and onLoad img events not firing on SSR.
-- lazyLoading by passing withLazy prop.
-
+Image component renders an img tag with some optional lazy load feature.
 
 <LiveEditorBlock code={code} scope={{ Image }} />
 <GeneratePropsTable componentName="Image" />
-
-
-
 
 export const meta = {
   name: 'Image',

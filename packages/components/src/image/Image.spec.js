@@ -1,10 +1,7 @@
 import React from 'react';
 import Image from './';
 import '@testing-library/jest-dom';
-
-import { render, waitFor } from '@testing-library/react';
-
-import * as imageUtils from './utils/isImageValid';
+import { render, fireEvent } from '@testing-library/react';
 import * as useIsVisibleUtils from '../hooks/useIsVisible/UseIsVisible';
 
 const props = {
@@ -16,15 +13,6 @@ const props = {
 };
 
 describe('Image', () => {
-  beforeEach(() => {
-    jest.spyOn(imageUtils, 'isImageValid');
-    imageUtils.isImageValid = jest.fn(() => Promise.resolve(true));
-  });
-
-  afterEach(() => {
-    imageUtils.isImageValid.mockRestore();
-  });
-
   describe('when withLazy is not enabled', () => {
     it(`renders image`, () => {
       const { getAllByRole } = render(<Image {...props} />);
@@ -36,21 +24,20 @@ describe('Image', () => {
       expect(image.alt).toEqual(props.alt);
     });
 
-    it('calls onLoad when valid src is provided', async () => {
+    it('calls onLoad when image load event fires', () => {
       const onLoad = jest.fn();
-      await render(<Image {...props} onLoad={onLoad} />);
+      const { getByRole } = render(<Image {...props} onLoad={onLoad} />);
+      fireEvent.load(getByRole('img'));
 
       expect(onLoad).toHaveBeenCalledTimes(1);
-      imageUtils.isImageValid.mockRestore();
     });
 
-    it('calls onError when invalid src is provided', async () => {
-      imageUtils.isImageValid = jest.fn(() => Promise.reject({ erroEvent: {} }));
+    it('calls onError when image error event fires', () => {
       const onError = jest.fn();
-      render(<Image {...props} onError={onError} />);
+      const { getByRole } = render(<Image {...props} onError={onError} />);
 
-      await waitFor(() => expect(onError).toHaveBeenCalledTimes(1));
-      expect(onError).toHaveBeenCalledWith({ erroEvent: {} });
+      fireEvent.error(getByRole('img'));
+      expect(onError).toHaveBeenCalledTimes(1);
     });
   });
   describe('when withLazy is enabled', () => {
