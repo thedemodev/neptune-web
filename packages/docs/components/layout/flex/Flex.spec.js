@@ -3,39 +3,48 @@ import serializer from 'jest-emotion';
 import { jsx } from '@emotion/core';
 import renderer from 'react-test-renderer'; // eslint-disable-line import/no-extraneous-dependencies
 
-import Box from './';
+import Flex from '.';
+import Box from '../box';
 
-const Width = { default: 1 / 2, xs: 1, sm: 1 / 2, md: 30, lg: 40, xl: 0 };
+const Direction = {
+  default: 'row',
+  xs: 'row-reverse',
+  sm: 'column',
+  md: 'column-reverse',
+  lg: 'row',
+  xl: 'row-reverse',
+};
+
+const Size = { default: 0, xs: 1 / 8, sm: 1 / 4, md: 1 / 2, lg: 100, xl: 100 };
+
 const customMediaQueries = [10, 20, 30, 40, 50].map(bp => `@media (min-width: ${bp}px)`);
 
 expect.addSnapshotSerializer(serializer);
 
 const props = {
-  as: 'section',
-  size: Width,
-  marginX: 1,
-  marginY: 2,
-  paddingX: 3,
-  paddingY: 4,
-  justifyContent: 'center',
-  alignItems: 'flex-end',
+  direction: Direction,
+  marginX: 0,
+  marginY: 1,
+  paddingX: 2,
+  paddingY: 3,
   className: 'anotherClass1 anotherClass2',
+  as: 'section',
 };
 
 describe('Box', () => {
   it('renders correctly', () => {
     const component = renderer.create(
-      <Box {...props}>
-        <div>This is a children.</div>
-      </Box>,
+      <Flex {...props}>
+        <Box size={Size}>This is a children.</Box>
+      </Flex>,
     );
     expect(component.toJSON()).toMatchSnapshot();
   });
   it('renders correctly with custom media queries', () => {
     const component = renderer.create(
-      <Box {...props} customMediaQueries={customMediaQueries}>
-        <div>This is a children.</div>
-      </Box>,
+      <Flex {...props} customMediaQueries={customMediaQueries}>
+        <Box size={Size}>This is a children.</Box>
+      </Flex>,
     );
     expect(component.toJSON()).toMatchSnapshot();
   });
