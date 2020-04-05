@@ -5,7 +5,7 @@ const ObserverParams = {
 };
 
 export const useIsVisible = elRef => {
-  const [isVisible, setIsVisible] = useState(() => false);
+  const [isVisible, setIsVisible] = useState(false);
 
   const isValidRef = () => {
     return elRef && elRef.current;

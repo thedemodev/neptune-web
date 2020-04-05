@@ -11,7 +11,7 @@ export default {
 
 export const basic = () => {
   const src = text('src', 'https://i.picsum.photos/id/1025/600/300.jpg');
-  const withLazy = boolean('withLazy', false);
+  const withLazy = boolean('withLazy', true);
 
   return (
     <Image
