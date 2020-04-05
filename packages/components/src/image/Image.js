@@ -20,11 +20,10 @@ const Image = ({ id, src, alt, onLoad, onError, className, withLazy }) => {
   // This needs to be always included because hooks cannot be called inside conditions/loops.
   const [isVisible] = useIsVisible(imageRef);
   let imageSrc = src;
+
   // Prevent load if image is not visible and lazyload is enabled.
-  if (withLazy) {
-    if (!isVisible) {
-      imageSrc = null;
-    }
+  if (withLazy && !isVisible) {
+    imageSrc = null;
   }
 
   const handleError = e => onError && onError(e);
