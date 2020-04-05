@@ -26,10 +26,6 @@ const Image = ({ id, src, alt, onLoad, onError, className, withLazy }) => {
     imageSrc = null;
   }
 
-  const handleError = e => onError && onError(e);
-
-  const handleLoad = () => onLoad && onLoad();
-
   return (
     <img
       id={id}
@@ -37,8 +33,8 @@ const Image = ({ id, src, alt, onLoad, onError, className, withLazy }) => {
       src={imageSrc}
       className={className}
       ref={imageRef}
-      onLoad={handleLoad}
-      onError={handleError}
+      onLoad={onLoad}
+      onError={e => onError(e)}
     />
   );
 };
