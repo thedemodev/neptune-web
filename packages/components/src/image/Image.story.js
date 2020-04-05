@@ -10,7 +10,7 @@ export default {
 };
 
 export const basic = () => {
-  const src = text('src', 'https://i.picsum.photos/id/1025/600/300.jp');
+  const src = text('src', 'https://i.picsum.photos/id/1025/600/300.jpg');
   const withLazy = boolean('withLazy', false);
 
   return (
@@ -19,7 +19,7 @@ export const basic = () => {
       src={src}
       id="id1"
       onLoad={action('load')}
-      onError={action('error')}
+      onError={e => action(e)}
       withLazy={withLazy}
     />
   );

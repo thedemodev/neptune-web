@@ -38,8 +38,8 @@ const Image = ({ id, src, alt, onLoad, onError, className, withLazy }) => {
       src={imageSrc}
       className={className}
       ref={imageRef}
-      onLoad={() => handleLoad()}
-      onError={e => handleError(e)}
+      onLoad={handleLoad}
+      onError={handleError}
     />
   );
 };
