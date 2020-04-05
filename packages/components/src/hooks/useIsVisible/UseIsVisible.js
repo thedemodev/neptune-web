@@ -23,20 +23,13 @@ export const useIsVisible = elRef => {
   useEffect(() => {
     let observer;
     let didCancel = false;
-    if (!isVisible) {
-      if (isValidRef()) {
-        // Check if window is define for SSaR.
-        if (window && window.IntersectionObserver && !didCancel) {
-          observer = new IntersectionObserver(handleOnIntersect, ObserverParams);
-          observer.observe(elRef.current);
-        } else {
-          // Old browsers fallback
-          setIsVisible(true);
-        }
-      } else {
-        // if the elRef is not valid.
-        setIsVisible(true);
-      }
+    // Check if window is define for SSR.
+    if (!window || !window.IntersectionObserver || !isValidRef()) {
+      // Old browsers fallback
+      setIsVisible(true);
+    } else if (!didCancel) {
+      observer = new IntersectionObserver(handleOnIntersect, ObserverParams);
+      observer.observe(elRef.current);
     }
     // Cleanup function that runs for every render and on unmount and clean the previous render value.
     return () => {
