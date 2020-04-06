@@ -14,11 +14,16 @@ const ObserverParams = {
  * @usage `const [hasIntersected] = useHasIntersected(imageRef);`
  * */
 export const useHasIntersected = elRef => {
-  const [hasIntersected, setHasIntersected] = useState(false);
-
   const isValidRef = () => {
     return elRef && elRef.current;
   };
+
+  // Check if window is define for SSR and Old browsers fallback
+  if (!window || !window.IntersectionObserver) {
+    return [true];
+  }
+
+  const [hasIntersected, setHasIntersected] = useState(false);
 
   const handleOnIntersect = (entries, observer) => {
     entries.forEach(entry => {
@@ -32,11 +37,11 @@ export const useHasIntersected = elRef => {
   useEffect(() => {
     let observer;
     let didCancel = false;
-    // Check if window is define for SSR.
-    if (!window || !window.IntersectionObserver || !isValidRef()) {
-      // Old browsers fallback
+
+    if (!isValidRef()) {
       setHasIntersected(true);
-    } else if (!didCancel) {
+    }
+    if (!didCancel) {
       observer = new IntersectionObserver(handleOnIntersect, ObserverParams);
       observer.observe(elRef.current);
     }

@@ -3,8 +3,8 @@ import Types from 'prop-types';
 import { useHasIntersected } from '../hooks';
 
 /**
- * Image component provides a wrapper for image tag. Optional lazy loading functionalities can also be enabled setting prop withLazy  to true.
- * Once element intersect viewport image loads.
+ * Image component provides a wrapper for image tag. Optional lazy loading functionalities can also be enabled passing prop withLazy = true.
+ * Once element intersects viewport image loads.
  *
  * @param {string} [alt=''] - string that contains the alt text.
  * @param {string} [src=''] - string that contains the src text.
