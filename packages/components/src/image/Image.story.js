@@ -10,17 +10,38 @@ export default {
 };
 
 export const basic = () => {
-  const src = text('src', 'https://i.picsum.photos/id/1025/600/300.jpg');
+  const src = text('src', 'https://i.picsum.photos/id/1025/600/200.jpg');
   const withLazy = boolean('withLazy', true);
 
   return (
-    <Image
-      alt="test"
-      src={src}
-      id="id1"
-      onLoad={action('load')}
-      onError={e => action(e)}
-      withLazy={withLazy}
-    />
+    <>
+      <Image
+        alt="test"
+        src={src}
+        id="id1"
+        onLoad={console.log('load 1')}
+        onError={e => action(e)}
+        withLazy={withLazy}
+        className="m-t-5"
+      />
+      <Image
+        alt="test"
+        src={src}
+        id="id2"
+        onLoad={console.log('load 2')}
+        onError={e => action(e)}
+        withLazy={withLazy}
+        className="m-t-5"
+      />
+      <Image
+        alt="test"
+        src={src}
+        id="id3"
+        onLoad={console.log('load 3')}
+        onError={e => action(e)}
+        withLazy={withLazy}
+        className="m-t-5"
+      />
+    </>
   );
 };

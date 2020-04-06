@@ -45,10 +45,8 @@ export const useHasIntersected = elRef => {
       observer = new IntersectionObserver(handleOnIntersect, ObserverParams);
       observer.observe(elRef.current);
     }
-    // Cleanup function that runs for every render and on unmount and clean the previous render value.
     return () => {
       didCancel = true;
-      // on component cleanup, we remove the listener if it has been created.
       if (observer) {
         observer.unobserve(elRef.current);
       }

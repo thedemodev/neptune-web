@@ -18,13 +18,11 @@ import { useHasIntersected } from '../hooks';
 
 const Image = ({ id, src, alt, onLoad, onError, className, withLazy }) => {
   const imageRef = useRef();
-  // This needs to be always included because hooks cannot be called inside conditions/loops.
   const [hasIntersected] = useHasIntersected(imageRef);
   let imageSrc = src;
 
-  // Prevent load if image is not visible and lazyload is enabled.
   if (withLazy && !hasIntersected) {
-    imageSrc = null;
+    imageSrc = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
   }
 
   return (
@@ -32,10 +30,12 @@ const Image = ({ id, src, alt, onLoad, onError, className, withLazy }) => {
       id={id}
       alt={alt}
       src={imageSrc}
+      data-src={src}
       className={className}
       ref={imageRef}
       onLoad={onLoad}
-      onError={e => onError(e)}
+      onError={onError}
+      style={{ display: 'block' }}
     />
   );
 };
