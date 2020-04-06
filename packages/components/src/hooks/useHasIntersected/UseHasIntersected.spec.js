@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react-hooks';
-import useIsVisible from '.';
+import useHasIntersected from '.';
 
-describe('useIsVisible', () => {
+describe('useHasIntersected', () => {
   const originalIntersectionObserver = window.IntersectionObserver;
 
   afterEach(() => {
@@ -11,13 +11,13 @@ describe('useIsVisible', () => {
   describe('when element is not visible', () => {
     it('returns true if ref is an invalid ref', () => {
       const invalidRef = null;
-      const { result } = renderHook(() => useIsVisible(invalidRef));
+      const { result } = renderHook(() => useHasIntersected(invalidRef));
       expect(result.current).toEqual([true]);
     });
     it('returns true if ref is valid and IntersectionObserver is not supported', () => {
       window.IntersectionObserver = null;
       const validRef = { current: 'a valid ref' };
-      const { result } = renderHook(() => useIsVisible(validRef));
+      const { result } = renderHook(() => useHasIntersected(validRef));
       expect(result.current).toEqual([true]);
       window.IntersectionObserver = originalIntersectionObserver;
     });
@@ -36,7 +36,7 @@ describe('useIsVisible', () => {
       });
 
       const validRef = { current: 'a valid ref' };
-      const { result } = renderHook(() => useIsVisible(validRef));
+      const { result } = renderHook(() => useHasIntersected(validRef));
       expect(result.current).toEqual([true]);
     });
 
@@ -49,7 +49,7 @@ describe('useIsVisible', () => {
       }));
 
       const validRef = { current: 'a valid ref' };
-      renderHook(() => useIsVisible(validRef));
+      renderHook(() => useHasIntersected(validRef));
 
       expect(observe).toHaveBeenCalledWith(validRef.current);
       expect(unobserve).not.toHaveBeenCalledWith();
@@ -68,7 +68,7 @@ describe('useIsVisible', () => {
         };
       });
       const validRef = { current: 'a valid ref' };
-      renderHook(() => useIsVisible(validRef));
+      renderHook(() => useHasIntersected(validRef));
 
       expect(unobserve).toHaveBeenCalledWith(validRef.current);
     });

@@ -2,7 +2,7 @@ import React from 'react';
 import Image from './';
 import '@testing-library/jest-dom';
 import { render, fireEvent } from '@testing-library/react';
-import * as useIsVisibleUtils from '../hooks/useIsVisible/UseIsVisible';
+import * as useHasIntersectedUtils from '../hooks/useHasIntersected/UseHasIntersected';
 
 const props = {
   id: 'id',
@@ -42,7 +42,7 @@ describe('Image', () => {
   });
   describe('when withLazy is enabled', () => {
     it('renders the image with null src if element is not visible', () => {
-      jest.spyOn(useIsVisibleUtils, 'useIsVisible').mockReturnValue([false]);
+      jest.spyOn(useHasIntersectedUtils, 'useHasIntersected').mockReturnValue([false]);
 
       const { getAllByRole } = render(<Image {...props} withLazy />);
       const images = getAllByRole('img');
@@ -51,7 +51,7 @@ describe('Image', () => {
       expect(image.src).toEqual('');
     });
     it('renders the image with src if element is  visible', () => {
-      jest.spyOn(useIsVisibleUtils, 'useIsVisible').mockReturnValue([true]);
+      jest.spyOn(useHasIntersectedUtils, 'useHasIntersected').mockReturnValue([true]);
 
       const { getAllByRole } = render(<Image {...props} withLazy />);
       const images = getAllByRole('img');

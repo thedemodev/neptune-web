@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import Types from 'prop-types';
-import { useIsVisible } from '../hooks';
+import { useHasIntersected } from '../hooks';
 
 /**
  * Image.
@@ -18,11 +18,11 @@ import { useIsVisible } from '../hooks';
 const Image = ({ id, src, alt, onLoad, onError, className, withLazy }) => {
   const imageRef = useRef();
   // This needs to be always included because hooks cannot be called inside conditions/loops.
-  const [isVisible] = useIsVisible(imageRef);
+  const [hasIntersected] = useHasIntersected(imageRef);
   let imageSrc = src;
 
   // Prevent load if image is not visible and lazyload is enabled.
-  if (withLazy && !isVisible) {
+  if (withLazy && !hasIntersected) {
     imageSrc = null;
   }
 

@@ -4,8 +4,17 @@ const ObserverParams = {
   threshold: 0.1,
 };
 
-export const useIsVisible = elRef => {
-  const [isVisible, setIsVisible] = useState(false);
+/**
+ * useHasIntersected.
+ * Use this custom hook to detect when an element has became visible inside the viewport. This hook checks only if the intersection happend.
+ * Once the intersection has happened the hook will not return false even if the element gets out of the viewport.
+ *
+ * @param {object} [elRef] - node object that contains a react reference to the element that needs to be observed.
+ *
+ * @usage `const [hasIntersected] = useHasIntersected(imageRef);`
+ * */
+export const useHasIntersected = elRef => {
+  const [hasIntersected, setHasIntersected] = useState(false);
 
   const isValidRef = () => {
     return elRef && elRef.current;
@@ -14,7 +23,7 @@ export const useIsVisible = elRef => {
   const handleOnIntersect = (entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        setIsVisible(true);
+        setHasIntersected(true);
         observer.unobserve(elRef.current);
       }
     });
@@ -26,7 +35,7 @@ export const useIsVisible = elRef => {
     // Check if window is define for SSR.
     if (!window || !window.IntersectionObserver || !isValidRef()) {
       // Old browsers fallback
-      setIsVisible(true);
+      setHasIntersected(true);
     } else if (!didCancel) {
       observer = new IntersectionObserver(handleOnIntersect, ObserverParams);
       observer.observe(elRef.current);
@@ -40,5 +49,5 @@ export const useIsVisible = elRef => {
       }
     };
   }, [elRef]);
-  return [isVisible];
+  return [hasIntersected];
 };

@@ -1,1 +1,1 @@
-export { default as useIsVisible } from './useIsVisible';
+export { default as useHasIntersected } from './useHasIntersected';
