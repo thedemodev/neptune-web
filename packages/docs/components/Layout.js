@@ -1,10 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'next/router';
-// This is import is temporary and be replace by a Layout component.
-
 import Link from './Link';
-import Box from './layout/box';
 
 import getPages from '../utils/getPages';
 import sections from '../utils/sections';
@@ -51,21 +48,7 @@ const Layout = ({ children, router: { pathname } }) => {
   );
 
   const secondContent = page && (
-    <Box
-      size={{
-        default: 0,
-        xs: 0,
-        sm: 200,
-        md: 200,
-        lg: 200,
-        xl: 200,
-      }}
-      justifyContent="flex-start"
-      alignItems="flex-start"
-      className="Sidebar"
-    >
-      <Sidebar title={sections.find(section => section.dir === dir).title} slug={dir} />
-    </Box>
+    <Sidebar title={sections.find(section => section.dir === dir).title} slug={dir} />
   );
 
   const thirdContent = (

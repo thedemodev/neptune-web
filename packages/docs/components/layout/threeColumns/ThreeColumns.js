@@ -77,6 +77,7 @@ const ThreeColumns = ({ firstContent, secondContent, thirdContent }) => {
     </Flex>
   );
 };
+
 ThreeColumns.propTypes = {
   firstContent: PropTypes.node,
   secondContent: PropTypes.node,
