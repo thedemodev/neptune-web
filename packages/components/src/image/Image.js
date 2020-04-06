@@ -3,14 +3,15 @@ import Types from 'prop-types';
 import { useHasIntersected } from '../hooks';
 
 /**
- * Image.
+ * Image component provides a wrapper for image tag. Optional lazy loading functionalities can also be enabled setting prop withLazy  to true.
+ * Once element intersect viewport image loads.
  *
- * @param {string} [alt] - string that contains the alt text.
- * @param {string} [src] - string that contains the src text.
- * @param {string} [id] - string that contains the id text.
- * @param {function} [onLoad] - function that contains load callback.
- * @param {function} [onError] - function that contains error callback.
- * @param {boolean} [withLazy] - enables lazy loadind callback.
+ * @param {string} [alt=''] - string that contains the alt text.
+ * @param {string} [src=''] - string that contains the src text.
+ * @param {string} [id=''] - string that contains the id text.
+ * @param {function} [onLoad=()=>{}] - function that contains load callback. Doesn't fire on SSR https://github.com/facebook/react/issues/15446
+ * @param {function} [onError=()=>{}] - function that contains error callback. Doesn't fire on SSR https://github.com/facebook/react/issues/15446
+ * @param {boolean} [withLazy=false] - enables lazy loadind callback.
  *
  * @usage `<Image alt="alt" src="src" id="id1" onLoad={()=>{}} onError={())=>{}} withLazy={true} />`
  * */
