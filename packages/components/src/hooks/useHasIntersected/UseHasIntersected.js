@@ -34,14 +34,9 @@ export const useHasIntersected = elRef => {
     let didCancel = false;
 
     // Check if window is define for SSR and Old browsers fallback
-    if (typeof window === 'undefined' || !window.IntersectionObserver) {
-      return [true];
-    }
-
-    if (!isValidRef()) {
+    if (typeof window === 'undefined' || !window.IntersectionObserver || !isValidRef()) {
       setHasIntersected(true);
-    }
-    if (!didCancel) {
+    } else if (!didCancel) {
       observer = new IntersectionObserver(handleOnIntersect, ObserverParams);
       observer.observe(elRef.current);
     }

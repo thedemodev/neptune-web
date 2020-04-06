@@ -3,6 +3,7 @@ import Image from './';
 import '@testing-library/jest-dom';
 import { render, fireEvent } from '@testing-library/react';
 import * as useHasIntersectedUtils from '../hooks/useHasIntersected/UseHasIntersected';
+import { EmptyTransparentImage } from './Image';
 
 const props = {
   id: 'id',
@@ -41,14 +42,14 @@ describe('Image', () => {
     });
   });
   describe('when withLazy is enabled', () => {
-    it('renders the image with null src if element is not visible', () => {
+    it('renders the image with EmptyTransparentImage if element is not visible', () => {
       jest.spyOn(useHasIntersectedUtils, 'useHasIntersected').mockReturnValue([false]);
 
       const { getAllByRole } = render(<Image {...props} withLazy />);
       const images = getAllByRole('img');
       const image = images[0];
       expect(images.length).toBe(1);
-      expect(image.src).toEqual('');
+      expect(image.src).toEqual(EmptyTransparentImage);
     });
     it('renders the image with src if element is  visible', () => {
       jest.spyOn(useHasIntersectedUtils, 'useHasIntersected').mockReturnValue([true]);

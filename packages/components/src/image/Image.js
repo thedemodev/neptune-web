@@ -16,13 +16,16 @@ import { useHasIntersected } from '../hooks';
  * @usage `<Image alt="alt" src="src" id="id1" onLoad={()=>{}} onError={())=>{}} withLazy={true} />`
  * */
 
+export const EmptyTransparentImage =
+  'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+
 const Image = ({ id, src, alt, onLoad, onError, className, withLazy }) => {
   const imageRef = useRef();
   const [hasIntersected] = useHasIntersected(imageRef);
   let imageSrc = src;
 
   if (withLazy && !hasIntersected) {
-    imageSrc = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+    imageSrc = EmptyTransparentImage;
   }
 
   return (
@@ -35,7 +38,6 @@ const Image = ({ id, src, alt, onLoad, onError, className, withLazy }) => {
       ref={imageRef}
       onLoad={onLoad}
       onError={onError}
-      style={{ display: 'block' }}
     />
   );
 };
