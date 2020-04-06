@@ -18,11 +18,6 @@ export const useHasIntersected = elRef => {
     return elRef && elRef.current;
   };
 
-  // Check if window is define for SSR and Old browsers fallback
-  if (!window || !window.IntersectionObserver) {
-    return [true];
-  }
-
   const [hasIntersected, setHasIntersected] = useState(false);
 
   const handleOnIntersect = (entries, observer) => {
@@ -37,6 +32,11 @@ export const useHasIntersected = elRef => {
   useEffect(() => {
     let observer;
     let didCancel = false;
+
+    // Check if window is define for SSR and Old browsers fallback
+    if (typeof window === 'undefined' || !window.IntersectionObserver) {
+      return [true];
+    }
 
     if (!isValidRef()) {
       setHasIntersected(true);
