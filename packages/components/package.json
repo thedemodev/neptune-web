@@ -96,7 +96,7 @@
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^8.0.0",
     "gulp-print": "^5.0.2",
-    "husky": "^2.7.0",
+    "husky": "^4.2.3",
     "jest": "24.7.1",
     "jest-cli": "^24.8.0",
     "jest-emotion": "^10.0.14",
