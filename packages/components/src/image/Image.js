@@ -20,8 +20,8 @@ export const EmptyTransparentImage =
   'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
 
 const Image = ({ id, src, alt, onLoad, onError, className, withLazy }) => {
-  const imageRef = useRef();
-  const [hasIntersected] = useHasIntersected(imageRef);
+  const elRef = useRef();
+  const [hasIntersected] = useHasIntersected({ elRef, withLazy });
   let imageSrc = src;
 
   if (withLazy && !hasIntersected) {
@@ -35,7 +35,7 @@ const Image = ({ id, src, alt, onLoad, onError, className, withLazy }) => {
       src={imageSrc}
       data-src={src}
       className={className}
-      ref={imageRef}
+      ref={elRef}
       onLoad={onLoad}
       onError={onError}
     />
