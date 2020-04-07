@@ -101,7 +101,7 @@
     "jest-cli": "^24.8.0",
     "jest-emotion": "^10.0.14",
     "jest-environment-jsdom-fourteen": "0.1.0",
-    "jest-fetch-mock": "^2.1.2",
+    "jest-fetch-mock": "^3.0.3",
     "jest-resolve": "24.7.1",
     "jest-watch-typeahead": "0.4.0",
     "less": "^3.10.3",
