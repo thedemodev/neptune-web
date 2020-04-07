@@ -3,7 +3,7 @@ import Types from 'prop-types';
 import { useHasIntersected } from '../hooks';
 
 /**
- * Image component provides a wrapper for image tag. Optional lazy loading functionalities can also be enabled passing prop withLazy = true.
+ * Image component provides a wrapper for image tag. Optional lazy loading functionalities can also be enabled passing prop loading = true.
  * Once element intersects viewport image loads.
  *
  * @param {string} [alt=''] - string that contains the alt text.
@@ -11,20 +11,20 @@ import { useHasIntersected } from '../hooks';
  * @param {string} [id=''] - string that contains the id text.
  * @param {function} [onLoad=()=>{}] - function that contains load callback. Doesn't fire on SSR https://github.com/facebook/react/issues/15446
  * @param {function} [onError=()=>{}] - function that contains error callback. Doesn't fire on SSR https://github.com/facebook/react/issues/15446
- * @param {boolean} [withLazy=false] - enables lazy loadind callback.
+ * @param {boolean} [loading="lazy"] - This attribute follows the loading API attribute. If set to eager image will load immediately just like a normal image tag otherwise it will lazy laod.
  *
- * @usage `<Image alt="alt" src="src" id="id1" onLoad={()=>{}} onError={())=>{}} withLazy={true} />`
+ * @usage `<Image alt="alt" src="src" id="id1" onLoad={()=>{}} onError={())=>{}} loading={true} />`
  * */
 
 export const EmptyTransparentImage =
   'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
 
-const Image = ({ id, src, alt, onLoad, onError, className, withLazy }) => {
+const Image = ({ id, src, alt, onLoad, onError, className, loading }) => {
   const elRef = useRef();
-  const [hasIntersected] = useHasIntersected({ elRef, withLazy });
+  const [hasIntersected] = useHasIntersected({ elRef, loading });
   let imageSrc = src;
 
-  if (withLazy && !hasIntersected) {
+  if (loading === 'lazy' && !hasIntersected) {
     imageSrc = EmptyTransparentImage;
   }
 
@@ -33,7 +33,6 @@ const Image = ({ id, src, alt, onLoad, onError, className, withLazy }) => {
       id={id}
       alt={alt}
       src={imageSrc}
-      data-src={src}
       className={className}
       ref={elRef}
       onLoad={onLoad}
@@ -49,7 +48,7 @@ Image.propTypes = {
   onLoad: Types.func,
   onError: Types.func,
   className: Types.string,
-  withLazy: Types.bool,
+  loading: Types.oneOf(['lazy', 'eager']),
 };
 
 Image.defaultProps = {
@@ -59,7 +58,7 @@ Image.defaultProps = {
   className: '',
   onLoad: () => {},
   onError: () => {},
-  withLazy: false,
+  loading: 'eager',
 };
 
 export default Image;

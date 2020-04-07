@@ -5,7 +5,7 @@ describe('useHasIntersected', () => {
   const originalIntersectionObserver = window.IntersectionObserver;
   let observe;
   let unobserve;
-  let withLazy;
+  let loading;
   let elRef;
 
   beforeEach(() => {
@@ -15,27 +15,27 @@ describe('useHasIntersected', () => {
   afterEach(() => {
     window.IntersectionObserver = originalIntersectionObserver;
   });
-  describe('when withLazy is false', () => {
+  describe('when loading is false', () => {
     it('returns false', () => {
-      const { result } = renderHook(() => useHasIntersected({ elRef, withLazy: false }));
+      const { result } = renderHook(() => useHasIntersected({ elRef, loading: 'eager' }));
       expect(result.current).toEqual([false]);
     });
   });
 
-  describe('when withLazy is true', () => {
+  describe('when loading is true', () => {
     beforeEach(() => {
-      withLazy = true;
+      loading = 'lazy';
       elRef = { current: 'a valid ref' };
     });
     describe('when element is not visible', () => {
       it('returns true if ref is an invalid ref', () => {
-        const { result } = renderHook(() => useHasIntersected({ elRef: null, withLazy }));
+        const { result } = renderHook(() => useHasIntersected({ elRef: null, loading }));
         expect(result.current).toEqual([true]);
       });
       it('returns true if ref is valid and IntersectionObserver is not supported', () => {
         window.IntersectionObserver = null;
 
-        const { result } = renderHook(() => useHasIntersected({ elRef, withLazy }));
+        const { result } = renderHook(() => useHasIntersected({ elRef, loading }));
         expect(result.current).toEqual([true]);
       });
       it('returns false if ref is valid', () => {
@@ -47,7 +47,7 @@ describe('useHasIntersected', () => {
           };
         });
 
-        const { result } = renderHook(() => useHasIntersected({ elRef, withLazy }));
+        const { result } = renderHook(() => useHasIntersected({ elRef, loading }));
         expect(result.current).toEqual([false]);
       });
     });
@@ -62,7 +62,7 @@ describe('useHasIntersected', () => {
           };
         });
 
-        const { result } = renderHook(() => useHasIntersected({ elRef, withLazy }));
+        const { result } = renderHook(() => useHasIntersected({ elRef, loading }));
         expect(observe).toHaveBeenCalledTimes(1);
         expect(result.current).toEqual([true]);
       });
@@ -73,7 +73,7 @@ describe('useHasIntersected', () => {
           unobserve,
         }));
 
-        renderHook(() => useHasIntersected({ elRef, withLazy }));
+        renderHook(() => useHasIntersected({ elRef, loading }));
         expect(observe).toHaveBeenCalledTimes(1);
         expect(observe).toHaveBeenCalledWith(elRef.current);
         expect(unobserve).not.toHaveBeenCalled();
@@ -90,7 +90,7 @@ describe('useHasIntersected', () => {
           };
         });
 
-        renderHook(() => useHasIntersected({ elRef, withLazy }));
+        renderHook(() => useHasIntersected({ elRef, loading }));
         expect(unobserve).toHaveBeenCalledTimes(1);
         expect(unobserve).toHaveBeenCalledWith(elRef.current);
       });

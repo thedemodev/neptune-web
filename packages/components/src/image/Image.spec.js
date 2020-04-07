@@ -10,11 +10,11 @@ const props = {
   src: 'https://www.a-valid-src.png/',
   alt: 'test',
   className: 'className',
-  withLazy: false,
+  loading: 'eager',
 };
 
 describe('Image', () => {
-  describe('when withLazy is not enabled', () => {
+  describe('when loading is not enabled', () => {
     it(`renders image`, () => {
       const { getAllByRole } = render(<Image {...props} />);
       const images = getAllByRole('img');
@@ -41,11 +41,11 @@ describe('Image', () => {
       expect(onError).toHaveBeenCalledTimes(1);
     });
   });
-  describe('when withLazy is enabled', () => {
+  describe('when loading is enabled', () => {
     it('renders the image with EmptyTransparentImage if element is not visible', () => {
       jest.spyOn(useHasIntersectedUtils, 'useHasIntersected').mockReturnValue([false]);
 
-      const { getAllByRole } = render(<Image {...props} withLazy />);
+      const { getAllByRole } = render(<Image {...props} loading="lazy" />);
       const images = getAllByRole('img');
       const image = images[0];
       expect(images.length).toBe(1);
@@ -54,7 +54,7 @@ describe('Image', () => {
     it('renders the image with src if element is  visible', () => {
       jest.spyOn(useHasIntersectedUtils, 'useHasIntersected').mockReturnValue([true]);
 
-      const { getAllByRole } = render(<Image {...props} withLazy />);
+      const { getAllByRole } = render(<Image {...props} loading="lazy" />);
       const images = getAllByRole('img');
       const image = images[0];
       expect(images.length).toBe(1);

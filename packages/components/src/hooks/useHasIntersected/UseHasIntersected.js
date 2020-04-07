@@ -13,8 +13,8 @@ const ObserverParams = {
  *
  * @usage `const [hasIntersected] = useHasIntersected(imageRef);`
  * */
-export const useHasIntersected = ({ elRef, withLazy }) => {
-  if (!withLazy) {
+export const useHasIntersected = ({ elRef, loading }) => {
+  if (loading === 'eager') {
     return [false];
   }
   const isValidRef = () => {
