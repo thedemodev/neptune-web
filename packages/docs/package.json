@@ -28,7 +28,7 @@
   },
   "homepage": "https://transferwise.github.io/neptune-web",
   "dependencies": {
-    "@mapbox/rehype-prism": "^0.3.1",
+    "@mapbox/rehype-prism": "^0.4.0",
     "@mdx-js/loader": "^1.4.4",
     "@next/mdx": "^9.0.5",
     "@transferwise/components": "^26.0.4",
