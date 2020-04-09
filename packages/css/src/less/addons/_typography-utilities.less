@@ -137,6 +137,61 @@
   color: var(--color-text-inactive) !important;
 }
 
+.display-1,
+.display-2,
+.display-3,
+.display-4 {
+  font-weight: var(--font-weight-bold);
+}
+
+.display-1 {
+  margin-bottom: var(--space-24);
+  font-size: 3.5rem; // 56px
+  line-height: 4.5rem; // 72px
+
+  @media (--screen-md) {
+    margin-bottom: var(--space-8);
+    font-size: 6.5rem; // 104px
+    line-height: 8rem; // 128px
+  }
+}
+
+.display-2 {
+  margin-bottom: var(--space-24);
+  font-size: 3.5rem; // 56px
+  line-height: 4.5rem; // 72px
+
+  @media (--screen-md) {
+    margin-bottom: var(--space-16);
+    font-size: 5.5rem; // 88px
+    line-height: 7rem; // 112px
+  }
+}
+
+.display-3 {
+  margin-bottom: var(--space-8);
+  font-size: 2.625rem; // 42px
+  line-height: 3rem; // 48px
+
+  @media (--screen-md) {
+    margin-bottom: var(--space-24);
+    font-size: 4.5rem; // 72px
+    line-height: 5.5rem; // 88px
+  }
+}
+
+.display-4 {
+  margin-bottom: var(--space-4);
+  font-size: var(--font-size-display-4);
+  line-height: 2rem; // 32px
+
+  @media (--screen-md) {
+    margin-bottom: var(--space-24);
+    font-size: 3.5rem; // 56px
+    line-height: 4.5rem; // 72px
+  }
+}
+
 .colored-dot {
   &::after {
     content: '.';
