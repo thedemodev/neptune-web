@@ -40,7 +40,7 @@ pre {
 
 a,
 .anchor {
-  color: var(--color-text-link);
+  color: var(--color-text-link-primary);
   font-weight: 600;
   letter-spacing: 0;
   text-decoration: underline;
@@ -48,12 +48,12 @@ a,
 
   &:hover,
   &:focus {
-    color: var(--color-text-link-hover);
+    color: var(--color-text-link-primary-hover);
     text-decoration: underline;
   }
 
   &:active {
-    color: var(--color-text-link-active);
+    color: var(--color-text-link-primary-active);
   }
 
   &:focus {
@@ -62,21 +62,21 @@ a,
   }
 
   &.secondary {
-    // color: @link-secondary-color;
+    color: var(--color-text-link-secondary);
     font-weight: var(--font-weight-normal);
 
     &:hover,
     &:focus {
-      // color: @link-secondary-hover-color;
+      color: var(--color-text-link-secondary-hover);
     }
 
     &:active {
-      // color: @link-secondary-active-color;
+      color: var(--color-text-link-secondary-active);
     }
   }
 
   &[disabled] {
-    // color: @brand-smoke;
+    color: var(--color-text-link-disabled);
     cursor: default;
   }
 }
