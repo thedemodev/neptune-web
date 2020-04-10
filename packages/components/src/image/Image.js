@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import Types from 'prop-types';
-import { useHasIntersected } from '../hooks';
+import { useHasIntersected } from '../common/hooks';
 
 /**
  * Image component provides a wrapper for image tag. Optional lazy loading functionalities can also be enabled passing prop loading = true.
