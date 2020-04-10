@@ -32,8 +32,9 @@ describe('Image', () => {
 
       const { getAllByRole } = render(<Image {...props} />);
       const images = getAllByRole('img');
+      expect(images).toHaveLength(1);
       const image = images[0];
-      expect(images.length).toBe(1);
+
       expect(image.src).toEqual(EmptyTransparentImage);
     });
     it('renders the image with src if element is visible', () => {
