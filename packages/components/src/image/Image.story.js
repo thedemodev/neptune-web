@@ -2,7 +2,7 @@ import React from 'react';
 import Image from './Image';
 import { action } from '@storybook/addon-actions';
 
-import { text, boolean } from '@storybook/addon-knobs';
+import { text, select } from '@storybook/addon-knobs';
 
 export default {
   component: Image,
@@ -11,7 +11,14 @@ export default {
 
 export const basic = () => {
   const src = text('src', 'https://i.picsum.photos/id/1025/600/200.jpg');
-  const withLazy = boolean('withLazy', true);
+  const loading = select(
+    'loading',
+    {
+      lazy: 'lazy',
+      eager: 'eager',
+    },
+    'lazy',
+  );
 
   return (
     <>
@@ -19,27 +26,27 @@ export const basic = () => {
         alt="test"
         src={src}
         id="id1"
-        onLoad={console.log('load 1')}
+        onLoad={action('load 1')}
         onError={e => action(e)}
-        withLazy={withLazy}
+        loading={loading}
         className="m-t-5"
       />
       <Image
         alt="test"
         src={src}
         id="id2"
-        onLoad={console.log('load 2')}
+        onLoad={action('load 2')}
         onError={e => action(e)}
-        withLazy={withLazy}
+        loading={loading}
         className="m-t-5"
       />
       <Image
         alt="test"
         src={src}
         id="id3"
-        onLoad={console.log('load 3')}
+        onLoad={action('load 3')}
         onError={e => action(e)}
-        withLazy={withLazy}
+        loading={loading}
         className="m-t-5"
       />
     </>
