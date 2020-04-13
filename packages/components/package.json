@@ -102,7 +102,7 @@
     "jest-emotion": "^10.0.14",
     "jest-environment-jsdom-fourteen": "0.1.0",
     "jest-fetch-mock": "^2.1.2",
-    "jest-resolve": "24.7.1",
+    "jest-resolve": "25.3.0",
     "jest-watch-typeahead": "0.4.0",
     "less": "^3.10.3",
     "lint-staged": "^9.4.2",
