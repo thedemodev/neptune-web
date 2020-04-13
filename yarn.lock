@@ -5724,6 +5724,11 @@ boolbase@^1.0.0, boolbase@~1.0.0:
   version "5.18.15"
   resolved "https://codeload.github.com/transferwise/bootstrap/tar.gz/e97a6000655efcbefd6848d68afb1c9984b9817f"
 
+"bootstrap@github:transferwise/bootstrap#v5.20.0":
+  version "5.20.0"
+  uid "1328e4e8cad4e200b887b67854d8fd9e8083f6a3"
+  resolved "https://codeload.github.com/transferwise/bootstrap/tar.gz/1328e4e8cad4e200b887b67854d8fd9e8083f6a3"
+
 bootstrap@transferwise/bootstrap:
   version "5.19.1"
   resolved "https://codeload.github.com/transferwise/bootstrap/tar.gz/345ed1cb3fa89394995319edc23a34f55182eb6c"
@@ -6960,15 +6965,10 @@ core-js@^2.4.0, core-js@^2.4.1, core-js@^2.5.0, core-js@^2.6.5:
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.10.tgz#8a5b8391f8cc7013da703411ce5b585706300d7f"
   integrity sha512-I39t74+4t+zau64EN1fE5v2W31Adtc/REhzWN+gWRRXg6WH5qAsZm62DHpQ1+Yhe4047T55jvzz7MUqF/dBBlA==
 
-core-js@^3.0.1, core-js@^3.0.4:
-  version "3.6.1"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.6.1.tgz#39d5e2e346258cc01eb7d44345b1c3c014ca3f05"
-  integrity sha512-186WjSik2iTGfDjfdCZAxv2ormxtKgemjC3SI6PL31qOA0j5LhTDVjHChccoc7brwLvpvLPiMyRlcO88C4l1QQ==
-
-core-js@^3.6.4:
-  version "3.6.4"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.6.4.tgz#440a83536b458114b9cb2ac1580ba377dc470647"
-  integrity sha512-4paDGScNgZP2IXXilaffL9X7968RuvwlkK3xWtZRVqgd8SYNiVKRJvkFd1aqqEuPfN7E68ZHEp9hDj6lHj4Hyw==
+core-js@^3.0.1, core-js@^3.0.4, core-js@^3.6.4:
+  version "3.6.5"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.6.5.tgz#7395dc273af37fb2e50e9bd3d9fe841285231d1a"
+  integrity sha512-vZVEEwZoIsI+vPEuoF9Iqf5H7/M3eeQqWlQnYa8FSKKePuYTf5MWnxb5SDAzCa60b3JBRS5g9b+Dq7b1y/RCrA==
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
